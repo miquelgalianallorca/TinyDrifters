@@ -693,8 +693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerationForce: 100
-  rotationForce: 40
-  maxSpeed: 25
+  rotationForce: 150
+  maxSpeed: 30
   carCenter: {fileID: 4890325976995868}
 --- !u!114 &114750104245012272
 MonoBehaviour:
