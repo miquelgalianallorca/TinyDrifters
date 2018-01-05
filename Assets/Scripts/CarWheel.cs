@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CarWheel : MonoBehaviour {
 
-	public WheelCollider collider;
+	public WheelCollider wheelCollider;
 
 	private Vector3 position = new Vector3();
 	private Quaternion rotation = new Quaternion ();
 
 	void Update () {
-		collider.GetWorldPose (out position, out rotation);
+		wheelCollider.GetWorldPose (out position, out rotation);
 		transform.position = position;
 		//transform.rotation = rotation; //IN THEORY this is enough
 		Vector3 rotEu = rotation.eulerAngles;

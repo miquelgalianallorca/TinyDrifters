@@ -14,10 +14,10 @@ public class CarEngine : MonoBehaviour {
 	public float maxSpeed = 100f;
 	float currentSpeed;
 
-	private Rigidbody rigidBody;
+	//private Rigidbody rigidBody;
 
 	void Start() {
-		rigidBody = GetComponent<Rigidbody> ();
+		//rigidBody = GetComponent<Rigidbody> ();
 	}
 
 	void FixedUpdate () {
