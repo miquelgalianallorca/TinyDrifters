@@ -82,4 +82,14 @@ public class Car : MonoBehaviour
     {
         totalDistance = totalWaypoints * 10000 - (gameController.GetWaypointPosition(nextWaypoint) - transform.position).magnitude;
     }
+
+	public bool IsVisibleInCamera () {
+		Collider col = gameObject.GetComponent<Collider> ();
+		if (!col)
+			return false;
+
+		// Calculate the planes from the main camera's view frustum
+		Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+		return GeometryUtility.TestPlanesAABB (planes, col.bounds);
+	}
 }
