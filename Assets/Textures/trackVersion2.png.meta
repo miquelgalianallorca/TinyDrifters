@@ -1,0 +1,1200 @@
+fileFormatVersion: 2
+guid: 34bbbe47956ac0b499aa0ca03e99a305
+timeCreated: 1515502128
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: trackVersion2_0
+    21300002: trackVersion2_1
+    21300004: trackVersion2_2
+    21300006: trackVersion2_3
+    21300008: trackVersion2_4
+    21300010: trackVersion2_5
+    21300012: trackVersion2_6
+    21300014: trackVersion2_7
+    21300016: trackVersion2_8
+    21300018: trackVersion2_9
+    21300020: trackVersion2_10
+    21300022: trackVersion2_11
+    21300024: trackVersion2_12
+    21300026: trackVersion2_13
+    21300028: trackVersion2_14
+    21300030: trackVersion2_15
+    21300032: trackVersion2_16
+    21300034: trackVersion2_17
+    21300036: trackVersion2_18
+    21300038: trackVersion2_19
+    21300040: trackVersion2_20
+    21300042: trackVersion2_21
+    21300044: trackVersion2_22
+    21300046: trackVersion2_23
+    21300048: trackVersion2_24
+    21300050: trackVersion2_25
+    21300052: asdf
+    21300054: trackVersion2_27
+    21300056: trackVersion2_28
+    21300058: trackVersion2_29
+    21300060: trackVersion2_30
+    21300062: trackVersion2_31
+    21300064: trackVersion2_32
+    21300066: trackVersion2_33
+    21300068: trackVersion2_34
+    21300070: trackVersion2_35
+    21300072: trackVersion2_36
+    21300074: trackVersion2_37
+    21300076: trackVersion2_38
+    21300078: trackVersion2_39
+    21300080: trackVersion2_40
+    21300082: trackVersion2_41
+    21300084: trackVersion2_42
+    21300086: trackVersion2_43
+    21300088: trackVersion2_44
+    21300090: trackVersion2_45
+    21300092: trackVersion2_46
+    21300094: trackVersion2_47
+    21300096: trackVersion2_48
+    21300098: trackVersion2_49
+    21300100: trackVersion2_50
+    21300102: trackVersion2_51
+    21300104: trackVersion2_52
+    21300106: trackVersion2_53
+    21300108: trackVersion2_54
+    21300110: trackVersion2_55
+    21300112: trackVersion2_56
+    21300114: trackVersion2_57
+    21300116: trackVersion2_58
+    21300118: trackVersion2_59
+    21300120: trackVersion2_60
+    21300122: trackVersion2_61
+    21300124: trackVersion2_62
+    21300126: trackVersion2_63
+    21300128: trackVersion2_64
+    21300130: trackVersion2_65
+    21300132: trackVersion2_66
+    21300134: trackVersion2_67
+    21300136: trackVersion2_68
+    21300138: trackVersion2_69
+    21300140: trackVersion2_70
+    21300142: trackVersion2_71
+    21300144: trackVersion2_72
+    21300146: trackVersion2_73
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: trackVersion2_0
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 8426
+        width: 966
+        height: 1375
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_1
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 9592
+        width: 118
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_2
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 9575
+        width: 237
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_3
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 9588
+        width: 123
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_4
+      rect:
+        serializedVersion: 2
+        x: 2057
+        y: 9593
+        width: 116
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_5
+      rect:
+        serializedVersion: 2
+        x: 2181
+        y: 9575
+        width: 478
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_6
+      rect:
+        serializedVersion: 2
+        x: 2669
+        y: 9583
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_7
+      rect:
+        serializedVersion: 2
+        x: 2793
+        y: 9588
+        width: 122
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_8
+      rect:
+        serializedVersion: 2
+        x: 2922
+        y: 9592
+        width: 118
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_9
+      rect:
+        serializedVersion: 2
+        x: 3046
+        y: 9588
+        width: 113
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_10
+      rect:
+        serializedVersion: 2
+        x: 3169
+        y: 9588
+        width: 119
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_11
+      rect:
+        serializedVersion: 2
+        x: 3690
+        y: 8314
+        width: 1335
+        height: 1333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_12
+      rect:
+        serializedVersion: 2
+        x: 4319
+        y: 8939
+        width: 1588
+        height: 1075
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_13
+      rect:
+        serializedVersion: 2
+        x: 5194
+        y: 8309
+        width: 1336
+        height: 1338
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_14
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 9449
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_15
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 9479
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_16
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 9488
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_17
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 9401
+        width: 129
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_18
+      rect:
+        serializedVersion: 2
+        x: 1569
+        y: 9419
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_19
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 9414
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_20
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 9396
+        width: 108
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_21
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 8052
+        width: 14
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_22
+      rect:
+        serializedVersion: 2
+        x: 3318
+        y: 7442
+        width: 1071
+        height: 1576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_23
+      rect:
+        serializedVersion: 2
+        x: 3680
+        y: 6807
+        width: 1338
+        height: 1333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_24
+      rect:
+        serializedVersion: 2
+        x: 5196
+        y: 6798
+        width: 1338
+        height: 1337
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_25
+      rect:
+        serializedVersion: 2
+        x: 5827
+        y: 7432
+        width: 1074
+        height: 1580
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: asdf
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 6144
+        width: 828
+        height: 1039
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_27
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 6126
+        width: 1058
+        height: 1063
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_28
+      rect:
+        serializedVersion: 2
+        x: 2357
+        y: 6125
+        width: 854
+        height: 1064
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_29
+      rect:
+        serializedVersion: 2
+        x: 4374
+        y: 6025
+        width: 1482
+        height: 1486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_30
+      rect:
+        serializedVersion: 2
+        x: 7823
+        y: 7169
+        width: 1054
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_31
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 5261
+        width: 1056
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_32
+      rect:
+        serializedVersion: 2
+        x: 3702
+        y: 5355
+        width: 1336
+        height: 1333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_33
+      rect:
+        serializedVersion: 2
+        x: 5201
+        y: 5360
+        width: 1334
+        height: 1342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_34
+      rect:
+        serializedVersion: 2
+        x: 6946
+        y: 6084
+        width: 847
+        height: 1055
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_35
+      rect:
+        serializedVersion: 2
+        x: 7823
+        y: 5211
+        width: 1058
+        height: 1928
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_36
+      rect:
+        serializedVersion: 2
+        x: 8904
+        y: 6084
+        width: 847
+        height: 1055
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_37
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 4389
+        width: 1059
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_38
+      rect:
+        serializedVersion: 2
+        x: 3329
+        y: 4478
+        width: 1079
+        height: 1581
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_39
+      rect:
+        serializedVersion: 2
+        x: 3688
+        y: 3839
+        width: 1347
+        height: 1338
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_40
+      rect:
+        serializedVersion: 2
+        x: 4324
+        y: 3468
+        width: 1583
+        height: 1079
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_41
+      rect:
+        serializedVersion: 2
+        x: 5196
+        y: 3848
+        width: 1334
+        height: 1346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_42
+      rect:
+        serializedVersion: 2
+        x: 5831
+        y: 4478
+        width: 1070
+        height: 1581
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_43
+      rect:
+        serializedVersion: 2
+        x: 2535
+        y: 3948
+        width: 114
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_44
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 3853
+        width: 480
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_45
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 2773
+        width: 847
+        height: 1056
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_46
+      rect:
+        serializedVersion: 2
+        x: 2510
+        y: 2704
+        width: 1120
+        height: 1124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_47
+      rect:
+        serializedVersion: 2
+        x: 3126
+        y: 3789
+        width: 126
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_48
+      rect:
+        serializedVersion: 2
+        x: 3239
+        y: 3725
+        width: 114
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_49
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 2827
+        width: 846
+        height: 947
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_50
+      rect:
+        serializedVersion: 2
+        x: 3333
+        y: 2778
+        width: 500
+        height: 988
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_51
+      rect:
+        serializedVersion: 2
+        x: 6773
+        y: 2262
+        width: 1124
+        height: 1130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_52
+      rect:
+        serializedVersion: 2
+        x: 7927
+        y: 2332
+        width: 847
+        height: 1055
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_53
+      rect:
+        serializedVersion: 2
+        x: 8800
+        y: 2262
+        width: 1133
+        height: 1129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_54
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 1668
+        width: 218
+        height: 1055
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_55
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 1668
+        width: 430
+        height: 1055
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_56
+      rect:
+        serializedVersion: 2
+        x: 2577
+        y: 1529
+        width: 1222
+        height: 1150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_57
+      rect:
+        serializedVersion: 2
+        x: 3090
+        y: 890
+        width: 1338
+        height: 1338
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_58
+      rect:
+        serializedVersion: 2
+        x: 6773
+        y: 1386
+        width: 1055
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_59
+      rect:
+        serializedVersion: 2
+        x: 8869
+        y: 1385
+        width: 1064
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_60
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 582
+        width: 218
+        height: 947
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_61
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 582
+        width: 430
+        height: 947
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_62
+      rect:
+        serializedVersion: 2
+        x: 3489
+        y: 613
+        width: 221
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_63
+      rect:
+        serializedVersion: 2
+        x: 3690
+        y: 473
+        width: 235
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_64
+      rect:
+        serializedVersion: 2
+        x: 3720
+        y: 376
+        width: 1149
+        height: 1222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_65
+      rect:
+        serializedVersion: 2
+        x: 4899
+        y: 377
+        width: 850
+        height: 1058
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_66
+      rect:
+        serializedVersion: 2
+        x: 6773
+        y: 235
+        width: 1124
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_67
+      rect:
+        serializedVersion: 2
+        x: 7927
+        y: 235
+        width: 857
+        height: 1056
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_68
+      rect:
+        serializedVersion: 2
+        x: 8800
+        y: 235
+        width: 1132
+        height: 1120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_69
+      rect:
+        serializedVersion: 2
+        x: 4005
+        y: 337
+        width: 125
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_70
+      rect:
+        serializedVersion: 2
+        x: 4131
+        y: 201
+        width: 471
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_71
+      rect:
+        serializedVersion: 2
+        x: 4607
+        y: 171
+        width: 251
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_72
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 176
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trackVersion2_73
+      rect:
+        serializedVersion: 2
+        x: 4983
+        y: 159
+        width: 114
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
