@@ -2,69 +2,84 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * CAR
- * Physics based car controller
-*/
+public class Car : MonoBehaviour
+{
 
-public class Car : MonoBehaviour {
+    public float accelerationForce = 10;
+    public float maxSpeed = 30;
+    public float rotationSpeed = 100;
+    public GameController gameController;
 
-	public float accelerationForce = 100;
-	public float rotationSpeed = 100;
-	public float maxSpeed = 20;
+    float driftFactor = 0;
+    public Rigidbody rigidBody;
 
-	public Transform carCenter;
+    int currentWaypoint;
+    public int nextWaypoint;
+    int totalWaypoints;
+    int lap;
+    public float totalDistance;
 
-	public Transform rightWheel;
-	public Transform leftWheel;
+    void Awake()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+        currentWaypoint = 0;
+        nextWaypoint = 0;
+        totalDistance = 0;
+        lap = 1;
+        gameController.AddCar(this);
+    }
 
-	Rigidbody rigidBody;
-	bool isGrounded = false;
-	float distToGround = 0.1f;
+    void Start()
+    {
 
-	void Start () {
-		rigidBody = GetComponent<Rigidbody> (); 
-		distToGround = carCenter.position.y;
-	}
-	
-	void FixedUpdate () {
-		isGrounded = Physics.Raycast (carCenter.position, -transform.up, distToGround + 0.1f);
-		//Debug.DrawRay(carCenter.position, -transform.up * distToGround, Color.red);
-		//Debug.Log ("isGrounded: " + isGrounded);
+    }
 
-		// Force based movement
-		float horizontal = 0;
-		float vertical   = 0;
-		if (gameObject.tag == "Player") {
-			horizontal = Input.GetAxis ("Horizontal");
-			vertical   = Input.GetAxis ("Vertical");
-		} else if (gameObject.tag == "Player2") {
-			horizontal = Input.GetAxis ("Horizontal2");
-			vertical   = Input.GetAxis ("Vertical2");
-		}
+    void Update()
+    {
 
-		float rotValue = rotationSpeed * Time.deltaTime * horizontal;
-		transform.Rotate (Vector3.up, rotValue);
-		RotWheels (rotValue);
-		if (isGrounded) {
-			//rigidBody.AddTorque (transform.up * rotationForce * horizontal, ForceMode.Acceleration);
-			rigidBody.AddForce (transform.forward * accelerationForce * vertical, ForceMode.Acceleration);
-			rigidBody.velocity = Vector3.ClampMagnitude (rigidBody.velocity, maxSpeed);
-		}
+    }
 
-	}
+    public Vector3 ForwardVelocity()
+    {
+        return transform.forward * Vector3.Dot(rigidBody.velocity, transform.forward);
+    }
 
-	void RotWheels(float rotValue) {
-		/*
-		if (rightWheel) {
-			float val = 0;
-			if (rotValue > 0) val = Mathf.Clamp (rotValue, 0, 40);
-			else val = Mathf.Clamp (rotValue, -40, 0);
-			rightWheel.Rotate (Vector3.forward, val);
-		}
-		if (leftWheel) {
-			float val = Mathf.Clamp (rotValue, 0, 40);
-			leftWheel.Rotate (Vector3.forward, rotValue);
-		}*/
-	}
+    public Vector3 RightVelocity()
+    {
+        return transform.right * Vector3.Dot(rigidBody.velocity, transform.right);
+    }
+
+    public Vector3 UpVelocity()
+    {
+        return transform.up * Vector3.Dot(rigidBody.velocity, transform.up);
+    }
+
+    public void Accelerate(float impulse)
+    {
+        if (rigidBody.velocity.magnitude < maxSpeed)
+        {
+            rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
+            rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
+        }
+        //rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
+    }
+
+    public Vector3 NextWaypoint()
+    {
+        totalWaypoints++;
+        currentWaypoint = nextWaypoint;
+        nextWaypoint++;
+        if (nextWaypoint == gameController.waypoints.Count)
+        {
+            nextWaypoint = 0;
+            lap++;
+            gameController.NotifyLap(lap);
+        }
+        return gameController.GetWaypointPosition(nextWaypoint);
+    }
+
+    public void UpdateTotalDistance()
+    {
+        totalDistance = totalWaypoints * 10000 - (gameController.GetWaypointPosition(nextWaypoint) - transform.position).magnitude;
+    }
 }
