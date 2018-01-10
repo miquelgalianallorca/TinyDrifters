@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Waypoint : MonoBehaviour {
+public class Waypoint : MonoBehaviour
+{
     public int waypointNum;
 
     void OnTriggerEnter(Collider other)
