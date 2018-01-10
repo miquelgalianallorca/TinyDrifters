@@ -17,7 +17,7 @@ public class CarAI : MonoBehaviour
     void Update()
     {
         //Car steering
-        goal.y = transform.position.y;
+        //goal.y = transform.position.y;
         Vector3 targetDir = goal - transform.position;
         float step = car.rotationSpeed * Time.deltaTime * Mathf.Deg2Rad;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
@@ -73,20 +73,9 @@ public class CarAI : MonoBehaviour
         ////    transform.Rotate(Vector3.up, rotAngle);
         ////}
 
-        //bool isGrounded = true;
-        ////Debug.DrawRay(carCenter.position, -transform.up * distToGround, Color.red);
-        ////Debug.Log ("isGrounded: " + isGrounded);
+        //car.rigidBody.AddForce(transform.forward * car.accelerationForce, ForceMode.Acceleration);
+        //car.rigidBody.velocity = Vector3.ClampMagnitude(car.rigidBody.velocity, car.maxSpeed);
 
-        //// Force based movement
-        //float horizontal = 0;
-        //float vertical = 1;
-
-        ////transform.Rotate(Vector3.up, rotValue);
-        //if (isGrounded)
-        //{
-        //    //rigidBody.AddTorque (transform.up * rotationForce * horizontal, ForceMode.Acceleration);
-        //    car.rigidBody.AddForce(transform.forward * car.accelerationForce * vertical, ForceMode.Acceleration);
-        //    car.rigidBody.velocity = Vector3.ClampMagnitude(car.rigidBody.velocity, car.maxSpeed);
-        //}
+        //car.rigidBody.velocity = car.ForwardVelocity() + car.RightVelocity() * 1 + car.UpVelocity();
     }
 }

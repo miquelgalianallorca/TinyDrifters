@@ -10,14 +10,15 @@ public class Car : MonoBehaviour
     public float rotationSpeed = 100;
     public GameController gameController;
 
-    float driftFactor = 0;
+    public float driftFactor = 0;
     public Rigidbody rigidBody;
 
-    int currentWaypoint;
+    public int currentWaypoint;
     public int nextWaypoint;
-    int totalWaypoints;
+    public int totalWaypoints;
     int lap;
     public float totalDistance;
+    public int lifes = 3;
 
     void Awake()
     {
@@ -26,7 +27,7 @@ public class Car : MonoBehaviour
         nextWaypoint = 0;
         totalDistance = 0;
         lap = 1;
-        gameController.AddCar(this);
+        //gameController.AddCar(this);
     }
 
     void Start()
@@ -56,12 +57,9 @@ public class Car : MonoBehaviour
 
     public void Accelerate(float impulse)
     {
-        if (rigidBody.velocity.magnitude < maxSpeed)
-        {
-            rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
-            rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
-        }
-        //rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
+       rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
+       rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
+       rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
     }
 
     public Vector3 NextWaypoint()
@@ -92,4 +90,18 @@ public class Car : MonoBehaviour
 		Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
 		return GeometryUtility.TestPlanesAABB (planes, col.bounds);
 	}
+
+    public void Respawn(Vector3 offset)
+    {
+        transform.position = gameController.waypoints[currentWaypoint];
+        transform.Translate(offset);
+        transform.LookAt(gameController.waypoints[nextWaypoint]);
+        rigidBody.velocity = Vector3.zero;
+    }
+
+    public void SetGameController(GameController gc)
+    {
+        gameController = gc;
+        gameController.AddCar(this);
+    } 
 }
