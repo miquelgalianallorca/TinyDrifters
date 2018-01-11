@@ -50,7 +50,8 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        gameObject.AddComponent<RaceMode>();
+        //gameObject.AddComponent<VersusMode>();
     }
 
     // Update is called once per frame

@@ -6,8 +6,6 @@ public class RaceMode : MonoBehaviour {
 
     GameController gamecontroller;
     UIManagement ui;
-    public GameObject cpuCar;
-    public GameObject playerCar;
     Car carPlayer; 
 
     // Use this for initialization
@@ -16,10 +14,10 @@ public class RaceMode : MonoBehaviour {
         ui = gamecontroller.ui;
         for (int i = 0; i < gamecontroller.startPoints.Count -1; i++)
         {
-            GameObject carCPU = Instantiate(cpuCar, gamecontroller.startPoints[i].position, gamecontroller.startPoints[i].rotation);
+            GameObject carCPU = Instantiate(Resources.Load("Car CPU New"), gamecontroller.startPoints[i].position, gamecontroller.startPoints[i].rotation) as GameObject;
             carCPU.GetComponent<Car>().SetGameController(gamecontroller);
         }
-        carPlayer = Instantiate(playerCar, gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].position, gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].rotation).GetComponent<Car>();
+        carPlayer = (Instantiate(Resources.Load("Car Player"), gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].position, gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].rotation) as GameObject).GetComponent<Car>();
         carPlayer.SetGameController(gamecontroller);
         StartCoroutine(gamecontroller.CountDown(3));
     }

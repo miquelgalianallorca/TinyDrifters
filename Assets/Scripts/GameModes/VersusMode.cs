@@ -6,9 +6,7 @@ public class VersusMode : MonoBehaviour
 {
 
     GameController gamecontroller;
-
-    public GameObject player1Car;
-    public GameObject player2Car;
+    
     Car carPlayer1;
     Car carPlayer2;
 
@@ -16,10 +14,10 @@ public class VersusMode : MonoBehaviour
     void Start()
     {
         gamecontroller = GetComponent<GameController>();
-        carPlayer1 = Instantiate(player1Car, gamecontroller.startPoints[0].position, gamecontroller.startPoints[0].rotation).GetComponent<Car>() ;
+        carPlayer1 = (Instantiate(Resources.Load("Car Player"), gamecontroller.startPoints[0].position, gamecontroller.startPoints[0].rotation) as GameObject).GetComponent<Car>();
         carPlayer1.SetGameController(gamecontroller);
-
-        carPlayer2 = Instantiate(player2Car, gamecontroller.startPoints[1].position, gamecontroller.startPoints[0].rotation).GetComponent<Car>();
+        
+        carPlayer2 = (Instantiate(Resources.Load("Car Player 2"), gamecontroller.startPoints[1].position, gamecontroller.startPoints[1].rotation) as GameObject).GetComponent<Car>();
         carPlayer2.SetGameController(gamecontroller);
         StartCoroutine(gamecontroller.CountDown(3));
     }
