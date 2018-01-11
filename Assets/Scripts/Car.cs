@@ -16,7 +16,7 @@ public class Car : MonoBehaviour
     public int currentWaypoint;
     public int nextWaypoint;
     public int totalWaypoints;
-    int lap;
+    public int lap;
     public float totalDistance;
     public int lifes = 3;
 

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     public int lapsLimit;
 
     //UI
-    public UITest ui;
+    public UIManagement ui;
 
     public int finishedCars;
 
@@ -94,13 +94,10 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        for (int i = 0; i < cars.Count; i++)
-        {
-            cars[i].gameObject.SetActive(false);
-        }
+        DeactivateAllCars();
     }
 
-    public void RespawnAll()
+    public void RespawnAllCars()
     {
         Car firstCar = cars[0];
         for (int i = 0; i < cars.Count; i++)
@@ -111,4 +108,42 @@ public class GameController : MonoBehaviour
             cars[i].Respawn(Vector3.right * i *5);
         }
     }
+
+    public void ActivateAllCars()
+    {
+        for (int i = 0; i < cars.Count; i++)
+        {
+            CarAI carAI = cars[i].GetComponent<CarAI>();
+            if (carAI) carAI.enabled = true;
+            CarPlayer carPlayer = cars[i].GetComponent<CarPlayer>();
+            if (carPlayer) carPlayer.enabled = true;
+        }
+    }
+
+    public void DeactivateAllCars()
+    {
+        for (int i = 0; i < cars.Count; i++)
+        {
+            CarAI carAI = cars[i].GetComponent<CarAI>();
+            if (carAI) carAI.enabled = false;
+            CarPlayer carPlayer = cars[i].GetComponent<CarPlayer>();
+            if (carPlayer) carPlayer.enabled = false;
+        }
+    }
+
+    public IEnumerator CountDown(int seconds)
+    {
+        DeactivateAllCars();
+        for (int i = seconds; i > 0; i--)
+        {
+            ui.SetCountDownText(i.ToString());
+            yield return new WaitForSeconds(1);
+        }
+        ui.SetCountDownText("GO");
+        yield return new WaitForSeconds(1);
+        ui.SetCountDownText("");
+        ActivateAllCars();
+        //ResetTimes();
+    }
+
 }

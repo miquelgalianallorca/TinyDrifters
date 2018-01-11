@@ -21,6 +21,7 @@ public class VersusMode : MonoBehaviour
 
         carPlayer2 = Instantiate(player2Car, gamecontroller.startPoints[1].position, gamecontroller.startPoints[0].rotation).GetComponent<Car>();
         carPlayer2.SetGameController(gamecontroller);
+        StartCoroutine(gamecontroller.CountDown(3));
     }
 
     private void Update()
@@ -36,15 +37,16 @@ public class VersusMode : MonoBehaviour
         if (!secondCar.IsVisibleInCamera())
         {
             secondCar.lifes--;
+            gamecontroller.RespawnAllCars();
+            Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gamecontroller.cars[0].transform.position);
             if (secondCar.lifes == 0)
             {
                 gamecontroller.GameOver();
             }
             else
             {
-                gamecontroller.RespawnAll();
+                StartCoroutine(gamecontroller.CountDown(3));
             }
         }
-        gamecontroller.ui.PrintLives(carPlayer1.lifes, carPlayer2.lifes);
     }
 }

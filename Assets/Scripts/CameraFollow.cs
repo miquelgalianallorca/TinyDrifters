@@ -58,6 +58,11 @@ public class CameraFollow : MonoBehaviour {
         }
     }
 
+    public void SetCameraPosition(Vector3 position)
+    {
+        transform.position = position + offset;
+    }
+
     //IEnumerator Transition()
     //{
     //    float t = 0.0f;
