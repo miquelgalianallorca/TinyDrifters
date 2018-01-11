@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
     public GameObject kk1;
     public GameObject kk2;
 
+    GameMode gameMode;
+
     void Awake()
     {
         Waypoint[] pathTransforms = path.GetComponentsInChildren<Waypoint>();
@@ -50,8 +52,8 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameObject.AddComponent<RaceMode>();
-        //gameObject.AddComponent<VersusMode>();
+        //InitRaceMode();
+        //InitVersusMode();
     }
 
     // Update is called once per frame
@@ -78,6 +80,10 @@ public class GameController : MonoBehaviour
     public void AddCar(Car car)
     {
         cars.Add(car);
+    }
+    public void RemoveCar(Car car)
+    {
+        cars.Remove(car);
     }
 
     public void NotifyLap(int lap)
@@ -132,6 +138,16 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void DestroyAllCars()
+    {
+        for (int i = 0; i < cars.Count; i++)
+        {
+            Car car = cars[i];
+            Destroy(car.gameObject);
+        }
+        cars.Clear();
+    }
+
     public IEnumerator CountDown(int seconds)
     {
         DeactivateAllCars();
@@ -147,4 +163,15 @@ public class GameController : MonoBehaviour
         //ResetTimes();
     }
 
+    public void InitRaceMode()
+    {
+        if (gameMode) gameMode.Deactivate();
+        gameMode = gameObject.AddComponent<RaceMode>();
+    }
+
+    public void InitVersusMode()
+    {
+        if (gameMode) gameMode.Deactivate();
+        gameMode = gameObject.AddComponent<VersusMode>();
+    }
 }

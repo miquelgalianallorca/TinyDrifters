@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceMode : MonoBehaviour {
-
-    GameController gamecontroller;
+public class RaceMode : GameMode {
+    
     UIManagement ui;
     Car carPlayer; 
 
@@ -19,12 +18,13 @@ public class RaceMode : MonoBehaviour {
         }
         carPlayer = (Instantiate(Resources.Load("Car Player"), gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].position, gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].rotation) as GameObject).GetComponent<Car>();
         carPlayer.SetGameController(gamecontroller);
+        Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(carPlayer.transform.position);
+        gamecontroller.finishedCars = 0;
         StartCoroutine(gamecontroller.CountDown(3));
     }
 
     private void Update()
     {
-        Camera.main.gameObject.GetComponent<CameraFollow>().SetTarget(carPlayer.transform);
         Camera.main.gameObject.GetComponent<CameraFollow>().target = (carPlayer.transform);
 
         //Update UI

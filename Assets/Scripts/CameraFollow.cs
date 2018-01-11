@@ -10,7 +10,6 @@ public class CameraFollow : MonoBehaviour {
     public float smoothTime = 0.3f;
     public float dist = 1;
     Vector3 velocity = Vector3.zero;
-    public bool changingTarget = false;
 
     void Start () {
 		if (target) offset = transform.position - target.position;
@@ -47,15 +46,6 @@ public class CameraFollow : MonoBehaviour {
            transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothFactor * Time.deltaTime);
         }
 
-    }
-
-    public void SetTarget(Transform newTarget)
-    {
-        if (newTarget.name != target.name)
-        {
-            target = newTarget;
-            changingTarget = true;
-        }
     }
 
     public void SetCameraPosition(Vector3 position)
