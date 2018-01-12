@@ -5,7 +5,7 @@ using UnityEngine;
 public class RaceMode : GameMode {
     
     UIManagement ui;
-    Car carPlayer; 
+    Car carPlayer;
 
     // Use this for initialization
     void Start () {
@@ -15,6 +15,11 @@ public class RaceMode : GameMode {
         {
             GameObject carCPU = Instantiate(Resources.Load("Car CPU New"), gamecontroller.startPoints[i].position, gamecontroller.startPoints[i].rotation) as GameObject;
             carCPU.GetComponent<Car>().SetGameController(gamecontroller);
+			// Car color
+			if (gamecontroller.carColors [i]) {
+				Renderer carRenderer = carCPU.GetComponentInChildren<Renderer> ();
+				carRenderer.material = gamecontroller.carColors [i];
+			}
         }
         carPlayer = (Instantiate(Resources.Load("Car Player"), gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].position, gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].rotation) as GameObject).GetComponent<Car>();
         carPlayer.SetGameController(gamecontroller);

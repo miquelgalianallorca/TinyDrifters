@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public List<Car> cars = new List<Car>();
     public int lapsLimit;
 
+	public Material[] carColors;
+
     //UI
     public UIManagement ui;
 
