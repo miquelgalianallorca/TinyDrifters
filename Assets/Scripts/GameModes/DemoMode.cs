@@ -15,10 +15,12 @@ public class DemoMode : GameMode
         ui = gamecontroller.ui;
         for (int i = 0; i < gamecontroller.startPoints.Count; i++)
         {
-            GameObject carCPU = Instantiate(Resources.Load("Car CPU New"), gamecontroller.startPoints[i].position, gamecontroller.startPoints[i].rotation) as GameObject;
-			carCPU.GetComponent<Car>().SetGameController(gamecontroller);
-			// Car color
-			if (gamecontroller.carColors [i]) {
+            GameObject carCPU = Instantiate(gamecontroller.cpuPrefab, gamecontroller.startPoints[i].position, gamecontroller.startPoints[i].rotation) as GameObject;
+            carCPU.GetComponent<Car>().SetGameController(gamecontroller);
+            carCPU.GetComponent<Car>().Init(gamecontroller.cpuTypes[Random.Range(0, gamecontroller.cpuTypes.Length)]);
+            carCPU.GetComponent<Car>().icon = gamecontroller.carIcons[i];
+            // Car color
+            if (gamecontroller.carColors [i]) {
 				Renderer carRenderer = carCPU.GetComponentInChildren<Renderer> ();
 				carRenderer.material = gamecontroller.carColors [i];
 			}

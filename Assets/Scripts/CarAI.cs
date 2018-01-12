@@ -7,27 +7,30 @@ public class CarAI : MonoBehaviour
 
     Car car;
     Vector3 goal;
+    int waypoint = 1;
+
+    public float waypointDistance = 5f;
+    public GameObject gizmo;
 
     void Start()
     {
         car = GetComponent<Car>();
-        goal = car.NextWaypoint();
+        goal = GetPositionAroundObject(car.NextWaypoint());
     }
 
     void Update()
     {
         //Car steering
-        goal = car.gameController.GetWaypointPosition(car.nextWaypoint);
-        goal.y = transform.position.y;
         Vector3 targetDir = goal - transform.position;
         float step = car.rotationSpeed * Time.deltaTime * Mathf.Deg2Rad;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
         transform.rotation = Quaternion.LookRotation(newDir);
 
         //Goal check
-        if ((transform.position - goal).magnitude < 5)
+        if ((transform.position - goal).magnitude < waypointDistance)
         {
-            //goal = car.NextWaypoint();
+            waypoint++;
+            goal = GetPositionAroundObject(car.gameController.GetWaypointPosition(waypoint));
         }
     }
 
@@ -78,5 +81,13 @@ public class CarAI : MonoBehaviour
         //car.rigidBody.velocity = Vector3.ClampMagnitude(car.rigidBody.velocity, car.maxSpeed);
 
         //car.rigidBody.velocity = car.ForwardVelocity() + car.RightVelocity() * 1 + car.UpVelocity();
+    }
+    Vector3 GetPositionAroundObject(Vector3 originalPos)
+    {
+        Vector3 offset = Random.insideUnitCircle * 10;
+        Vector3 newPos = originalPos + offset;
+        newPos.y = transform.position.y;
+        Instantiate(gizmo, newPos, Quaternion.identity);
+        return newPos;
     }
 }

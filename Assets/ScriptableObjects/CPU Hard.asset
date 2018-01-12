@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545ac6413b0ca964da26cc1ccda48a75, type: 3}
+  m_Name: CPU Hard
+  m_EditorClassIdentifier: 
+  carName: CPU Hard
+  accelerationForce: 100
+  maxSpeed: 34
+  rotationSpeed: 100
+  driftFactor: 0.4
+  waypointOffset: 0
+  waypointDistance: 3
+  sprite: {fileID: 0}

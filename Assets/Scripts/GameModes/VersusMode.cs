@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VersusMode : GameMode
 {
-    
+
     Car carPlayer1;
     Car carPlayer2;
 
@@ -12,10 +12,10 @@ public class VersusMode : GameMode
     void Start()
     {
         gamecontroller = GetComponent<GameController>();
-        carPlayer1 = (Instantiate(Resources.Load("Car Player"), gamecontroller.startPoints[0].position, gamecontroller.startPoints[0].rotation) as GameObject).GetComponent<Car>();
+        carPlayer1 = (Instantiate(gamecontroller.player1Prefab, gamecontroller.startPoints[0].position, gamecontroller.startPoints[0].rotation) as GameObject).GetComponent<Car>();
         carPlayer1.SetGameController(gamecontroller);
-        
-        carPlayer2 = (Instantiate(Resources.Load("Car Player 2"), gamecontroller.startPoints[1].position, gamecontroller.startPoints[1].rotation) as GameObject).GetComponent<Car>();
+
+        carPlayer2 = (Instantiate(gamecontroller.player2Prefab, gamecontroller.startPoints[1].position, gamecontroller.startPoints[1].rotation) as GameObject).GetComponent<Car>();
         carPlayer2.SetGameController(gamecontroller);
         Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gamecontroller.cars[0].transform.position);
         StartCoroutine(gamecontroller.CountDown(3));
@@ -41,8 +41,18 @@ public class VersusMode : GameMode
             }
             else
             {
-                StartCoroutine(gamecontroller.CountDown(3));
+                StartCoroutine(RoundResult(1, gamecontroller.cars[0].carName));
             }
         }
+    }
+
+    public IEnumerator RoundResult(int seconds, string player)
+    {
+        gamecontroller.DeactivateAllCars();
+        gamecontroller.ui.versusPanel.SetActive(true);
+        gamecontroller.ui.SetRoundResultText(player + " wins");
+        yield return new WaitForSeconds(seconds);
+        gamecontroller.ui.versusPanel.SetActive(false);
+        StartCoroutine(gamecontroller.CountDown(3));
     }
 }

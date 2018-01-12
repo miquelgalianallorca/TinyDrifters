@@ -19,6 +19,17 @@ public class Car : MonoBehaviour
     public int lap;
     public float totalDistance;
     public int lifes = 3;
+    public string carName;
+    public Sprite icon;
+
+    public void Init(CarProperties properties)
+    {
+        accelerationForce = properties.accelerationForce;
+        maxSpeed = properties.maxSpeed;
+        rotationSpeed = properties.rotationSpeed;
+        driftFactor = properties.driftFactor;
+        carName = properties.carName;
+    }
 
 	private CarSoundManager carSoundManager;
 
@@ -61,11 +72,17 @@ public class Car : MonoBehaviour
 
     public void Accelerate(float impulse)
     {
+<<<<<<< HEAD
        rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
        rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
        rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
 		// Sound
 		if (carSoundManager) carSoundManager.SetVolume (impulse);
+=======
+        rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
+        rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
+        rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
+>>>>>>> origin/master
     }
 
     public Vector3 NextWaypoint()
@@ -87,15 +104,16 @@ public class Car : MonoBehaviour
         totalDistance = totalWaypoints * 10000 - (gameController.GetWaypointPosition(nextWaypoint) - transform.position).magnitude;
     }
 
-	public bool IsVisibleInCamera () {
-		Collider col = gameObject.GetComponent<Collider> ();
-		if (!col)
-			return false;
+    public bool IsVisibleInCamera()
+    {
+        Collider col = gameObject.GetComponent<Collider>();
+        if (!col)
+            return false;
 
-		// Calculate the planes from the main camera's view frustum
-		Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-		return GeometryUtility.TestPlanesAABB (planes, col.bounds);
-	}
+        // Calculate the planes from the main camera's view frustum
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        return GeometryUtility.TestPlanesAABB(planes, col.bounds);
+    }
 
     public void Respawn(Vector3 offset)
     {
@@ -110,8 +128,11 @@ public class Car : MonoBehaviour
         gameController = gc;
         gameController.AddCar(this);
     }
+<<<<<<< HEAD
 
 	public float GetSpeed(){
 		return rigidBody.velocity.magnitude;
 	}
+=======
+>>>>>>> origin/master
 }
