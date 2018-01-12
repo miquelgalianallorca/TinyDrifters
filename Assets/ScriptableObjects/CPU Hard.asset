@@ -14,8 +14,8 @@ MonoBehaviour:
   carName: CPU Hard
   accelerationForce: 100
   maxSpeed: 34
-  rotationSpeed: 100
-  driftFactor: 0.4
+  rotationSpeed: 280
+  driftFactor: 1
   waypointOffset: 0
   waypointDistance: 3
   sprite: {fileID: 0}

@@ -14,7 +14,7 @@ MonoBehaviour:
   carName: CPU Easy
   accelerationForce: 100
   maxSpeed: 30
-  rotationSpeed: 200
+  rotationSpeed: 280
   driftFactor: 1
   waypointOffset: 0
   waypointDistance: 3

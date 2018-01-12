@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     public GameObject path;
     public GameObject starts;
-    public List<Vector3> waypoints = new List<Vector3>();
+    public List<Transform> waypoints = new List<Transform>();
     public List<Transform> startPoints = new List<Transform>();
     public List<Car> cars = new List<Car>();
     public int lapsLimit;
@@ -32,12 +32,12 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        Waypoint[] pathTransforms = path.GetComponentsInChildren<Waypoint>();
+        Checkpoint[] pathTransforms = path.GetComponentsInChildren<Checkpoint>();
         for (int i = 0; i < pathTransforms.Length; i++)
         {
             if (pathTransforms[i] != path.transform)
             {
-                waypoints.Add(pathTransforms[i].transform.position);
+                waypoints.Add(pathTransforms[i].transform);
                 pathTransforms[i].waypointNum = i;
 
             }
@@ -71,18 +71,13 @@ public class GameController : MonoBehaviour
         }
         cars = cars.OrderByDescending(car => car.totalDistance).ToList();
 
-        ui.SetFirstPosition(cars[0].icon);
-        ui.SetSecondPosition(cars[1].icon);
-        ui.SetThirdPosition(cars[2].icon);
-        ui.SetFourthPosition(cars[3].icon);
-
         //positions.text  = "1. " + cars[0].gameObject.name + "\n";
         //positions.text += "2. " + cars[1].gameObject.name + "\n";
         //positions.text += "3. " + cars[2].gameObject.name + "\n";
 
     }
 
-    public Vector3 GetWaypointPosition(int waypoint)
+    public Transform GetWaypointPosition(int waypoint)
     {
         //Instantiate(kk, waypoints[waypoint], Quaternion.identity);
         return waypoints[waypoint];
@@ -120,9 +115,9 @@ public class GameController : MonoBehaviour
         Car firstCar = cars[0];
         for (int i = 0; i < cars.Count; i++)
         {
-            cars[i].currentWaypoint = firstCar.currentWaypoint;
-            cars[i].nextWaypoint = firstCar.nextWaypoint;
-            cars[i].totalWaypoints = firstCar.totalWaypoints;
+            cars[i].currentCheckpoint = firstCar.currentCheckpoint;
+            cars[i].nextCheckpoint = firstCar.nextCheckpoint;
+            cars[i].totalCheckpoints = firstCar.totalCheckpoints;
             cars[i].Respawn(Vector3.right * i *5);
         }
     }

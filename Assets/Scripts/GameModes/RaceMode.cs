@@ -42,7 +42,12 @@ public class RaceMode : GameMode {
 
     // Update is called once per frame
     void LateUpdate () {
-		if (gamecontroller.finishedCars >= 3) {
+
+        ui.SetFirstPosition(gamecontroller.cars[0].icon);
+        ui.SetSecondPosition(gamecontroller.cars[1].icon);
+        ui.SetThirdPosition(gamecontroller.cars[2].icon);
+        ui.SetFourthPosition(gamecontroller.cars[3].icon);
+        if (gamecontroller.finishedCars >= 3) {
             gamecontroller.GameOver();
         }
 	}

@@ -15,23 +15,28 @@ public class CarAI : MonoBehaviour
     void Start()
     {
         car = GetComponent<Car>();
-        goal = GetPositionAroundObject(car.NextWaypoint());
+        goal = GetPositionAroundObject(car.CheckpointPassed());
     }
 
     void Update()
     {
         //Car steering
+        if (waypoint != car.nextCheckpoint)
+        {
+            waypoint = car.nextCheckpoint;
+            goal = GetPositionAroundObject(car.gameController.GetWaypointPosition(waypoint));
+        }
         Vector3 targetDir = goal - transform.position;
         float step = car.rotationSpeed * Time.deltaTime * Mathf.Deg2Rad;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
         transform.rotation = Quaternion.LookRotation(newDir);
 
         //Goal check
-        if ((transform.position - goal).magnitude < waypointDistance)
-        {
-            waypoint++;
-            goal = GetPositionAroundObject(car.gameController.GetWaypointPosition(waypoint));
-        }
+        //if ((transform.position - goal).magnitude < waypointDistance)
+        //{
+        //    waypoint++;
+        //    
+        //}
     }
 
     void FixedUpdate()
@@ -82,12 +87,19 @@ public class CarAI : MonoBehaviour
 
         //car.rigidBody.velocity = car.ForwardVelocity() + car.RightVelocity() * 1 + car.UpVelocity();
     }
-    Vector3 GetPositionAroundObject(Vector3 originalPos)
+    Vector3 GetPositionAroundObject(Transform originalPos)
     {
-        Vector3 offset = Random.insideUnitCircle * 10;
-        Vector3 newPos = originalPos + offset;
+        Vector2 random = Random.insideUnitCircle * 10;
+        Vector3 offset = new Vector3(random.x, transform.position.y, random.y);
+
+        if (Vector3.Dot(offset, originalPos.forward) < 0)
+        {
+            offset = Vector3.Reflect(offset, originalPos.forward);
+        }
+        
+        Vector3 newPos = originalPos.position + offset;
         newPos.y = transform.position.y;
-        Instantiate(gizmo, newPos, Quaternion.identity);
+        //Instantiate(gizmo, newPos, Quaternion.identity);
         return newPos;
     }
 }

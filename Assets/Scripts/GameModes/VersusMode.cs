@@ -29,6 +29,9 @@ public class VersusMode : GameMode
     // Update is called once per frame
     void LateUpdate()
     {
+        gamecontroller.ui.SetFirstPosition(gamecontroller.cars[0].icon);
+        gamecontroller.ui.SetSecondPosition(gamecontroller.cars[1].icon);
+
         Car secondCar = gamecontroller.cars[1];
         if (!secondCar.IsVisibleInCamera())
         {

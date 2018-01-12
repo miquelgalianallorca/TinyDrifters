@@ -13,9 +13,9 @@ public class Car : MonoBehaviour
     public float driftFactor = 0;
     public Rigidbody rigidBody;
 
-    public int currentWaypoint;
-    public int nextWaypoint;
-    public int totalWaypoints;
+    public int currentCheckpoint;
+    public int nextCheckpoint;
+    public int totalCheckpoints;
     public int lap;
     public float totalDistance;
     public int lifes = 3;
@@ -34,8 +34,8 @@ public class Car : MonoBehaviour
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        currentWaypoint = 0;
-        nextWaypoint = 0;
+        currentCheckpoint = 0;
+        nextCheckpoint = 0;
         totalDistance = 0;
         lap = 1;
         //gameController.AddCar(this);
@@ -73,23 +73,33 @@ public class Car : MonoBehaviour
         rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
     }
 
-    public Vector3 NextWaypoint()
+    public Transform CheckpointPassed()
     {
-        totalWaypoints++;
-        currentWaypoint = nextWaypoint;
-        nextWaypoint++;
-        if (nextWaypoint == gameController.waypoints.Count)
+        totalCheckpoints++;
+        currentCheckpoint = nextCheckpoint;
+        nextCheckpoint++;
+        if (nextCheckpoint == gameController.waypoints.Count)
         {
-            nextWaypoint = 0;
+            nextCheckpoint = 0;
             lap++;
             gameController.NotifyLap(lap);
         }
-        return gameController.GetWaypointPosition(nextWaypoint);
+        return gameController.GetWaypointPosition(nextCheckpoint);
+    }
+
+    public Transform NextCheckpoint()
+    {
+        int next = nextCheckpoint + 1;
+        if (next == gameController.waypoints.Count)
+        {
+            next = 0;
+        }
+        return gameController.GetWaypointPosition(nextCheckpoint);
     }
 
     public void UpdateTotalDistance()
     {
-        totalDistance = totalWaypoints * 10000 - (gameController.GetWaypointPosition(nextWaypoint) - transform.position).magnitude;
+        totalDistance = totalCheckpoints * 10000 - (gameController.GetWaypointPosition(nextCheckpoint).position - transform.position).magnitude;
     }
 
     public bool IsVisibleInCamera()
@@ -105,9 +115,9 @@ public class Car : MonoBehaviour
 
     public void Respawn(Vector3 offset)
     {
-        transform.position = gameController.waypoints[currentWaypoint];
+        transform.position = gameController.waypoints[currentCheckpoint].position;
         transform.Translate(offset);
-        transform.LookAt(gameController.waypoints[nextWaypoint]);
+        transform.LookAt(gameController.waypoints[nextCheckpoint]);
         rigidBody.velocity = Vector3.zero;
     }
 

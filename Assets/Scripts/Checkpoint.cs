@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Waypoint : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     public int waypointNum;
 
@@ -11,11 +11,11 @@ public class Waypoint : MonoBehaviour
         Car car = other.gameObject.GetComponent<Car>();
         if (car)
         {
-            if (waypointNum == car.nextWaypoint)
+            if (waypointNum == car.nextCheckpoint)
             {
-                car.NextWaypoint();
+                car.CheckpointPassed();
             }
-            else if (waypointNum != car.currentWaypoint)
+            else if (waypointNum != car.currentCheckpoint)
             {
                 car.Respawn(Vector3.zero);
             }
