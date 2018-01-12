@@ -17,7 +17,8 @@ public class CarAI : MonoBehaviour
     void Update()
     {
         //Car steering
-        //goal.y = transform.position.y;
+        goal = car.gameController.GetWaypointPosition(car.nextWaypoint);
+        goal.y = transform.position.y;
         Vector3 targetDir = goal - transform.position;
         float step = car.rotationSpeed * Time.deltaTime * Mathf.Deg2Rad;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
@@ -26,7 +27,7 @@ public class CarAI : MonoBehaviour
         //Goal check
         if ((transform.position - goal).magnitude < 5)
         {
-            goal = car.NextWaypoint();
+            //goal = car.NextWaypoint();
         }
     }
 

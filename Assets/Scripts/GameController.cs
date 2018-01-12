@@ -174,4 +174,10 @@ public class GameController : MonoBehaviour
         if (gameMode) gameMode.Deactivate();
         gameMode = gameObject.AddComponent<VersusMode>();
     }
+
+    public void InitDemoMode()
+    {
+        if (gameMode) gameMode.Deactivate();
+        gameMode = gameObject.AddComponent<DemoMode>();
+    }
 }
