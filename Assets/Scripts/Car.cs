@@ -72,17 +72,11 @@ public class Car : MonoBehaviour
 
     public void Accelerate(float impulse)
     {
-<<<<<<< HEAD
        rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
        rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
        rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
 		// Sound
 		if (carSoundManager) carSoundManager.SetVolume (impulse);
-=======
-        rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
-        rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
-        rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
->>>>>>> origin/master
     }
 
     public Vector3 NextWaypoint()
@@ -128,11 +122,8 @@ public class Car : MonoBehaviour
         gameController = gc;
         gameController.AddCar(this);
     }
-<<<<<<< HEAD
 
 	public float GetSpeed(){
 		return rigidBody.velocity.magnitude;
 	}
-=======
->>>>>>> origin/master
 }
