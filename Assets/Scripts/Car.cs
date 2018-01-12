@@ -31,6 +31,8 @@ public class Car : MonoBehaviour
         carName = properties.carName;
     }
 
+	private CarSoundManager carSoundManager;
+
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -39,6 +41,8 @@ public class Car : MonoBehaviour
         totalDistance = 0;
         lap = 1;
         //gameController.AddCar(this);
+
+		carSoundManager = GetComponent<CarSoundManager> ();
     }
 
     void Start()
@@ -68,9 +72,11 @@ public class Car : MonoBehaviour
 
     public void Accelerate(float impulse)
     {
-        rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
-        rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
-        rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
+       rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
+       rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
+       rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
+		// Sound
+		if (carSoundManager) carSoundManager.SetVolume (impulse);
     }
 
     public Transform CheckpointPassed()
@@ -126,4 +132,8 @@ public class Car : MonoBehaviour
         gameController = gc;
         gameController.AddCar(this);
     }
+
+	public float GetSpeed(){
+		return rigidBody.velocity.magnitude;
+	}
 }

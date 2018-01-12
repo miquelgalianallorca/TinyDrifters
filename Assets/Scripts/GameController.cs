@@ -141,6 +141,10 @@ public class GameController : MonoBehaviour
             if (carAI) carAI.enabled = false;
             CarPlayer carPlayer = cars[i].GetComponent<CarPlayer>();
             if (carPlayer) carPlayer.enabled = false;
+
+			// Stop engine sound
+			CarSoundManager soundManager = cars[i].GetComponent<CarSoundManager>();
+			if (soundManager) soundManager.StopEngine ();
         }
     }
 
