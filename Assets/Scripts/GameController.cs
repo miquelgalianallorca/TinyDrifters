@@ -14,15 +14,19 @@ public class GameController : MonoBehaviour
     public List<Car> cars = new List<Car>();
     public int lapsLimit;
 
-	public Material[] carColors;
+    //Car Properties
+    public CarProperties[] cpuTypes;
+    public GameObject cpuPrefab;
+    public GameObject player1Prefab;
+    public GameObject player2Prefab;
+
+    public Material[] carColors;
+    public Sprite[] carIcons;
 
     //UI
     public UIManagement ui;
 
     public int finishedCars;
-
-    public GameObject kk1;
-    public GameObject kk2;
 
     GameMode gameMode;
 
@@ -66,11 +70,16 @@ public class GameController : MonoBehaviour
             cars[i].UpdateTotalDistance();
         }
         cars = cars.OrderByDescending(car => car.totalDistance).ToList();
+
+        ui.SetFirstPosition(cars[0].icon);
+        ui.SetSecondPosition(cars[1].icon);
+        ui.SetThirdPosition(cars[2].icon);
+        ui.SetFourthPosition(cars[3].icon);
+
         //positions.text  = "1. " + cars[0].gameObject.name + "\n";
         //positions.text += "2. " + cars[1].gameObject.name + "\n";
         //positions.text += "3. " + cars[2].gameObject.name + "\n";
 
-        Debug.Log((kk1.transform.position- kk2.transform.position).magnitude);
     }
 
     public Vector3 GetWaypointPosition(int waypoint)
@@ -167,6 +176,7 @@ public class GameController : MonoBehaviour
 
     public void InitRaceMode()
     {
+        //ui.racePanel.SetActive(true);
         if (gameMode) gameMode.Deactivate();
         gameMode = gameObject.AddComponent<RaceMode>();
     }
