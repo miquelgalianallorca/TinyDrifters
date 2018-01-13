@@ -89,7 +89,7 @@ public class CarAI : MonoBehaviour
     }
     Vector3 GetPositionAroundObject(Transform originalPos)
     {
-        Vector2 random = Random.insideUnitCircle * 10;
+        Vector2 random = Random.insideUnitCircle * car.waypointOffset;
         Vector3 offset = new Vector3(random.x, transform.position.y, random.y);
 
         if (Vector3.Dot(offset, originalPos.forward) < 0)
@@ -99,7 +99,7 @@ public class CarAI : MonoBehaviour
         
         Vector3 newPos = originalPos.position + offset;
         newPos.y = transform.position.y;
-        //Instantiate(gizmo, newPos, Quaternion.identity);
+        Instantiate(gizmo, newPos, Quaternion.identity);
         return newPos;
     }
 }

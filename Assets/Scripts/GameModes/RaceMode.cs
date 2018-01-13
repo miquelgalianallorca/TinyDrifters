@@ -27,6 +27,7 @@ public class RaceMode : GameMode {
         carPlayer.SetGameController(gamecontroller);
         Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(carPlayer.transform.position);
         gamecontroller.finishedCars = 0;
+        gamecontroller.ui.SetTotalLaps(gamecontroller.lapsLimit);
         StartCoroutine(gamecontroller.CountDown(3));
     }
 
@@ -47,8 +48,28 @@ public class RaceMode : GameMode {
         ui.SetSecondPosition(gamecontroller.cars[1].icon);
         ui.SetThirdPosition(gamecontroller.cars[2].icon);
         ui.SetFourthPosition(gamecontroller.cars[3].icon);
-        if (gamecontroller.finishedCars >= 3) {
+        if (gamecontroller.finishedCars >= gamecontroller.cars.Count - 1 || carPlayer.lap > gamecontroller.lapsLimit) {
             gamecontroller.GameOver();
+            gamecontroller.menuUI.gameObject.SetActive(true);
+            gamecontroller.menuUI.ActivateRetryMenu();
+            int pos = gamecontroller.GetCarPosition(carPlayer);
+            string posText = "";
+            switch (pos)
+            {
+                case 1:
+                    posText = "1st";
+                    break;
+                case 2:
+                    posText = "2nd";
+                    break;
+                case 3:
+                    posText = "3rd";
+                    break;
+                case 4:
+                    posText = "4th";
+                    break;
+            }
+            ui.SetResultText("You finished " + posText);
         }
 	}
 }

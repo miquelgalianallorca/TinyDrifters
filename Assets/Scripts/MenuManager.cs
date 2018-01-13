@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour {
 
 	void Awake() {
 		//Don't destroy MenuManager when changing scene
-		DontDestroyOnLoad (gameObject);
+		//DontDestroyOnLoad (gameObject);
 	}
 
 	// On button press

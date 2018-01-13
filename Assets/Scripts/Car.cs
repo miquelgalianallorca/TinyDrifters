@@ -22,6 +22,8 @@ public class Car : MonoBehaviour
     public string carName;
     public Sprite icon;
 
+    public float waypointOffset;
+
     public void Init(CarProperties properties)
     {
         accelerationForce = properties.accelerationForce;
@@ -29,6 +31,7 @@ public class Car : MonoBehaviour
         rotationSpeed = properties.rotationSpeed;
         driftFactor = properties.driftFactor;
         carName = properties.carName;
+        waypointOffset = properties.waypointOffset;
     }
 
 	private CarSoundManager carSoundManager;
@@ -122,8 +125,9 @@ public class Car : MonoBehaviour
     public void Respawn(Vector3 offset)
     {
         transform.position = gameController.waypoints[currentCheckpoint].position;
+        transform.rotation = Quaternion.LookRotation(gameController.waypoints[currentCheckpoint].forward);
+        //transform.LookAt(gameController.waypoints[nextCheckpoint]);
         transform.Translate(offset);
-        transform.LookAt(gameController.waypoints[nextCheckpoint]);
         rigidBody.velocity = Vector3.zero;
     }
 

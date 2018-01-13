@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
 
     //UI
     public UIManagement ui;
+    public MenuManagement menuUI;
 
     public int finishedCars;
 
@@ -60,6 +61,7 @@ public class GameController : MonoBehaviour
     {
         //InitRaceMode();
         //InitVersusMode();
+        InitDemoMode();
     }
 
     // Update is called once per frame
@@ -176,12 +178,16 @@ public class GameController : MonoBehaviour
     public void InitRaceMode()
     {
         //ui.racePanel.SetActive(true);
+        menuUI.gameObject.SetActive(false);
+        ui.gameObject.SetActive(true);
         if (gameMode) gameMode.Deactivate();
         gameMode = gameObject.AddComponent<RaceMode>();
     }
 
     public void InitVersusMode()
     {
+        menuUI.gameObject.SetActive(false);
+        ui.gameObject.SetActive(true);
         if (gameMode) gameMode.Deactivate();
         gameMode = gameObject.AddComponent<VersusMode>();
     }
@@ -190,5 +196,20 @@ public class GameController : MonoBehaviour
     {
         if (gameMode) gameMode.Deactivate();
         gameMode = gameObject.AddComponent<DemoMode>();
+    }
+
+    public int GetCarPosition(Car carToFind)
+    {
+        int pos = 0;
+        for (int i = 0; i < cars.Count; i++)
+        {
+            Car car = cars[i];
+            if (car == carToFind)
+            {
+                pos = i + 1;
+                break;
+            }
+        }
+        return pos;
     }
 }

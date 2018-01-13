@@ -17,6 +17,7 @@ public class UIManagement : MonoBehaviour
     public Text speedText;
     public Text countDownText;
     public Text roundResultText;
+    public Text resultText;
     public Sprite player1Sprite;
     public Sprite player2Sprite;
     public Sprite com1Sprite;
@@ -158,5 +159,10 @@ public class UIManagement : MonoBehaviour
     public void SetRoundResultText(string text)
     {
         roundResultText.text = text;
+    }
+
+    public void SetResultText(string text)
+    {
+        resultText.text = text;
     }
 }

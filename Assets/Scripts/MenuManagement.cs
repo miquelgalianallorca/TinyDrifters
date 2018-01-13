@@ -13,9 +13,11 @@ public class MenuManagement : MonoBehaviour {
 	public Text timeText;
 	private int normalFontSize;
 	private int highlightFontSize;
+    public GameObject mainMenuPanel;
+    public GameObject retryPanel;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		normalFontSize = 35;
 		highlightFontSize = 42;
 	}
@@ -29,7 +31,17 @@ public class MenuManagement : MonoBehaviour {
 		Debug.Log ("button clicked");
 	}
 
-	public void P1ButtonClick(){
+    public void ButtonHover(Text buttonText)
+    {
+        buttonText.fontSize = highlightFontSize;
+    }
+
+    public void ButtonNormal(Text buttonText)
+    {
+        buttonText.fontSize = normalFontSize;
+    }
+
+    public void P1ButtonClick(){
 		//Load 1p vs com scene
 	}
 
@@ -64,4 +76,16 @@ public class MenuManagement : MonoBehaviour {
 	public void TimeButtonNormal(){
 		timeText.fontSize = normalFontSize;
 	}
+
+    public void ActivateMainMenu()
+    {
+        retryPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+    }
+
+    public void ActivateRetryMenu()
+    {
+        mainMenuPanel.SetActive(false);
+        retryPanel.SetActive(true);
+    }
 }
