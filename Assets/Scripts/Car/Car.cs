@@ -18,7 +18,7 @@ public class Car : MonoBehaviour
     public int totalCheckpoints;
     public int lap;
     public float totalDistance;
-    public int lifes = 3;
+    public int points = 0;
     public string carName;
     public Sprite icon;
 

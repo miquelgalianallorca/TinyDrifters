@@ -9,15 +9,18 @@ public class UIManagement : MonoBehaviour
     public Image secondPosImage;
     public Image thirdPosImage;
     public Image fourthPosImage;
-    public Slider speedSlider;
+    public Slider p1SpeedSlider;
+    public Slider p2SpeedSlider;
     public Text currentLapText;
     public Text totalLapsText;
     public Text minutesText;
     public Text secondsText;
-    public Text speedText;
+    public Text p1SpeedText;
+    public Text p2SpeedText;
     public Text countDownText;
-    public Text roundResultText;
     public Text resultText;
+    public Text p1LivesText;
+    public Text p2LivesText;
     public Sprite player1Sprite;
     public Sprite player2Sprite;
     public Sprite com1Sprite;
@@ -36,21 +39,28 @@ public class UIManagement : MonoBehaviour
     };
     public float lerpSpeed;
 
-    private float targetSlideValue;
+    private float p1TargetSlideValue;
+    private float p2TargetSlideValue;
 
     // Use this for initialization
     void Start()
     {
-        targetSlideValue = 0;
+        p1TargetSlideValue = 0;
+        p2TargetSlideValue = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (speedSlider.value < targetSlideValue - 0.01f || speedSlider.value > targetSlideValue + 0.01f)
-            speedSlider.value = Mathf.Lerp(speedSlider.value, targetSlideValue, Time.deltaTime * lerpSpeed);
+        if (p1SpeedSlider.value < p1TargetSlideValue - 0.01f || p1SpeedSlider.value > p1TargetSlideValue + 0.01f)
+            p1SpeedSlider.value = Mathf.Lerp(p1SpeedSlider.value, p1TargetSlideValue, Time.deltaTime * lerpSpeed);
         else
-            speedSlider.value = targetSlideValue;
+            p1SpeedSlider.value = p1TargetSlideValue;
+
+        if (p2SpeedSlider.value < p2TargetSlideValue - 0.01f || p2SpeedSlider.value > p2TargetSlideValue + 0.01f)
+            p2SpeedSlider.value = Mathf.Lerp(p2SpeedSlider.value, p2TargetSlideValue, Time.deltaTime * lerpSpeed);
+        else
+            p2SpeedSlider.value = p2TargetSlideValue;
     }
 
     private Sprite GetSpriteByRacer(Racers racer)
@@ -80,12 +90,12 @@ public class UIManagement : MonoBehaviour
 
     public void SetMinutes(int minutes)
     {
-        minutesText.text = minutes.ToString() + "'";
+        minutesText.text = minutes.ToString("D2") + "'";
     }
 
     public void SetSeconds(int seconds)
     {
-        secondsText.text = seconds.ToString() + "''";
+        secondsText.text = seconds.ToString("D2") + "''";
     }
 
     public void SetTotalLaps(int laps)
@@ -140,29 +150,71 @@ public class UIManagement : MonoBehaviour
 
     public void SetSpeedSlider(float slideValue)
     {
-        if (slideValue <= 1 || slideValue >= 0)
-            targetSlideValue = slideValue;
-        else
-            targetSlideValue = 0;
+        
     }
 
-    public void SetSpeedText(int speed)
-    {
-        speedText.text = speed.ToString();
-    }
+    //public void SetSpeedText(int speed)
+    //{
+    //    speedText.text = speed.ToString();
+    //}
 
     public void SetCountDownText(string text)
     {
         countDownText.text = text;
     }
 
-    public void SetRoundResultText(string text)
-    {
-        roundResultText.text = text;
-    }
-
     public void SetResultText(string text)
     {
         resultText.text = text;
     }
+
+    public void PrintTime(float totalTime)
+    {
+        int minutes = Mathf.FloorToInt(totalTime / 60f);
+        int seconds = Mathf.FloorToInt(totalTime % 60f);
+        SetSeconds(seconds);
+        SetMinutes(minutes);
+    }
+
+    public void SetLives(int p1Lives, int p2Lives)
+    {
+        p1LivesText.text = p1Lives.ToString();
+        p2LivesText.text = p2Lives.ToString();
+    }
+
+    public void ActivateDemoUI()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void ActivateRaceUI()
+    {
+        gameObject.SetActive(true);
+        racePanel.SetActive(true);
+        versusPanel.SetActive(false);
+        UpdateP1Speed(0,0);
+
+    }
+
+    public void ActivateVersusUI()
+    {
+        gameObject.SetActive(true);
+        versusPanel.SetActive(true);
+        racePanel.SetActive(false);
+        UpdateP1Speed(0, 0);
+        UpdateP2Speed(0, 0);
+    }
+
+    public void UpdateP1Speed(float currentSpeed, float maxSpeed)
+    {
+        p1SpeedText.text = Mathf.RoundToInt(Mathf.Clamp(currentSpeed, 0, maxSpeed)).ToString();
+        p1TargetSlideValue = Mathf.Clamp(currentSpeed, 0, maxSpeed) / maxSpeed;
+    }
+
+    public void UpdateP2Speed(float currentSpeed, float maxSpeed)
+    {
+        p2SpeedText.text = Mathf.RoundToInt(Mathf.Clamp(currentSpeed, 0, maxSpeed)).ToString();
+        p2TargetSlideValue = Mathf.Clamp(currentSpeed, 0, maxSpeed) / maxSpeed;
+    }
+
 }

@@ -79,13 +79,20 @@ public class MenuManagement : MonoBehaviour {
 
     public void ActivateMainMenu()
     {
+        gameObject.SetActive(true);
         retryPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
 
     public void ActivateRetryMenu()
     {
+        gameObject.SetActive(true);
         mainMenuPanel.SetActive(false);
         retryPanel.SetActive(true);
+    }
+
+    public void DeactivateMenu()
+    {
+        gameObject.SetActive(false);
     }
 }

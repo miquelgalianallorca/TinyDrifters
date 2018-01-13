@@ -12,7 +12,10 @@ public class GameController : MonoBehaviour
     public List<Transform> waypoints = new List<Transform>();
     public List<Transform> startPoints = new List<Transform>();
     public List<Car> cars = new List<Car>();
+
+    //
     public int lapsLimit;
+    public int pointsLimit;
 
     //Car Properties
     public CarProperties[] cpuTypes;
@@ -28,6 +31,7 @@ public class GameController : MonoBehaviour
     public MenuManagement menuUI;
 
     public int finishedCars;
+    public float totalTime;
 
     GameMode gameMode;
 
@@ -61,7 +65,7 @@ public class GameController : MonoBehaviour
     {
         //InitRaceMode();
         //InitVersusMode();
-        InitDemoMode();
+        SetGameMode("demo");
     }
 
     // Update is called once per frame
@@ -72,7 +76,7 @@ public class GameController : MonoBehaviour
             cars[i].UpdateTotalDistance();
         }
         cars = cars.OrderByDescending(car => car.totalDistance).ToList();
-
+        totalTime += Time.deltaTime;
         //positions.text  = "1. " + cars[0].gameObject.name + "\n";
         //positions.text += "2. " + cars[1].gameObject.name + "\n";
         //positions.text += "3. " + cars[2].gameObject.name + "\n";
@@ -109,7 +113,8 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        DeactivateAllCars();
+        menuUI.ActivateRetryMenu();
+        gameMode.Deactivate();
     }
 
     public void RespawnAllCars()
@@ -132,6 +137,8 @@ public class GameController : MonoBehaviour
             if (carAI) carAI.enabled = true;
             CarPlayer carPlayer = cars[i].GetComponent<CarPlayer>();
             if (carPlayer) carPlayer.enabled = true;
+            CarSoundManager soundManager = cars[i].GetComponent<CarSoundManager>();
+            if (soundManager) soundManager.StartEngine();
         }
     }
 
@@ -162,6 +169,8 @@ public class GameController : MonoBehaviour
 
     public IEnumerator CountDown(int seconds)
     {
+        ui.SetResultText("");
+        gameMode.enabled = false;
         DeactivateAllCars();
         for (int i = seconds; i > 0; i--)
         {
@@ -172,30 +181,64 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(1);
         ui.SetCountDownText("");
         ActivateAllCars();
+        gameMode.enabled = true;
+        totalTime = 0f;
         //ResetTimes();
     }
 
-    public void InitRaceMode()
+    //public void InitRaceMode()
+    //{
+    //    if (gameMode) Destroy(gameMode);
+    //    gameMode = gameObject.AddComponent<RaceMode>();
+    //    gameMode.Activate();
+    //}
+
+    //public void InitVersusMode()
+    //{
+    //    if (gameMode) Destroy(gameMode);
+    //    menuUI.gameObject.SetActive(false);
+    //    ui.gameObject.SetActive(true);
+    //    if (gameMode) gameMode.Deactivate();
+    //    gameMode = gameObject.AddComponent<VersusMode>();
+    //    gameMode.Activate();
+    //}
+
+    //public void InitDemoMode()
+    //{
+    //    if (gameMode)
+    //    {
+    //        gameMode.Deactivate();
+    //        Destroy(gameMode);
+    //    }
+    //    gameMode = gameObject.AddComponent<DemoMode>();
+    //    gameMode.Activate();
+    //}
+
+    public void SetGameMode(string mode)
     {
-        //ui.racePanel.SetActive(true);
-        menuUI.gameObject.SetActive(false);
-        ui.gameObject.SetActive(true);
-        if (gameMode) gameMode.Deactivate();
-        gameMode = gameObject.AddComponent<RaceMode>();
+        if (gameMode)
+        {
+            gameMode.Deactivate();
+            Destroy(gameMode);
+        }
+        switch (mode)
+        {
+            case "race":
+                gameMode = gameObject.AddComponent <RaceMode> ();
+                break;
+            case "versus":
+                gameMode = gameObject.AddComponent<VersusMode>();
+                break;
+            case "demo":
+                gameMode = gameObject.AddComponent<DemoMode>();
+                break;
+        }
+        gameMode.Activate();
     }
 
-    public void InitVersusMode()
+    public void ActivateGameMode()
     {
-        menuUI.gameObject.SetActive(false);
-        ui.gameObject.SetActive(true);
-        if (gameMode) gameMode.Deactivate();
-        gameMode = gameObject.AddComponent<VersusMode>();
-    }
-
-    public void InitDemoMode()
-    {
-        if (gameMode) gameMode.Deactivate();
-        gameMode = gameObject.AddComponent<DemoMode>();
+        gameMode.Activate();
     }
 
     public int GetCarPosition(Car carToFind)

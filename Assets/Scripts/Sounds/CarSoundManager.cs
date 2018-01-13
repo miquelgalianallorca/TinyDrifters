@@ -13,7 +13,7 @@ public class CarSoundManager : MonoBehaviour {
 	public float maxVolume = 0.4f;
 	public float fadeTime  = 5.0f;
 
-	void Start () {
+	void Awake () {
 		car = GetComponent<Car> ();
 		audioSource = GetComponent<AudioSource> ();
 		if (audioSource && engineSound) {
@@ -34,7 +34,18 @@ public class CarSoundManager : MonoBehaviour {
 			StartCoroutine (FadeSound());
 	}
 
-	public IEnumerator FadeSound(){
+    // Call from GameController when activating cars
+    public void StartEngine()
+    {
+        if (audioSource && engineSound)
+        {
+            audioSource.volume = minVolume;
+            audioSource.time = Random.value;
+            audioSource.Play();
+        }
+    }
+
+    public IEnumerator FadeSound(){
 		float startVolume = audioSource.volume;
 		while (audioSource.volume > 0) {
 			audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
