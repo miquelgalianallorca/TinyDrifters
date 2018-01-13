@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public int waypointNum;
+    public int checkPointNum;
 
     void OnTriggerEnter(Collider other)
     {
         Car car = other.gameObject.GetComponent<Car>();
         if (car)
         {
-            if (waypointNum == car.nextCheckpoint)
+            if (checkPointNum == car.nextCheckpoint)
             {
                 car.CheckpointPassed();
             }
-            else if (waypointNum != car.currentCheckpoint)
+            else if (checkPointNum != car.currentCheckpoint)
             {
                 car.Respawn(Vector3.zero);
             }

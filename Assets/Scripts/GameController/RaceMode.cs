@@ -4,68 +4,91 @@ using UnityEngine;
 
 public class RaceMode : GameMode {
     
-    UIManagement ui;
     Car carPlayer;
+    float totalTime;
 
     public override void Activate()
     {
-        gamecontroller = GetComponent<GameController>();
-        ui = gamecontroller.ui;
-        for (int i = 0; i < gamecontroller.startPoints.Count - 1; i++)
+        //Generate CPU cars
+        for (int i = 0; i < gameController.startPoints.Count - 1; i++)
         {
-            GameObject carCPU = Instantiate(gamecontroller.cpuPrefab, gamecontroller.startPoints[i].position, gamecontroller.startPoints[i].rotation) as GameObject;
-            carCPU.GetComponent<Car>().SetGameController(gamecontroller);
-            carCPU.GetComponent<Car>().Init(gamecontroller.cpuTypes[Random.Range(0, gamecontroller.cpuTypes.Length)]);
-            carCPU.GetComponent<Car>().icon = gamecontroller.carIcons[i];
-            // Car color
-            if (gamecontroller.carColors[i])
+            Car car = Instantiate(gameController.cpuPrefab, gameController.startPoints[i].position, gameController.startPoints[i].rotation).GetComponent<Car>();
+
+            //Pick random AI
+            car.Init(gameController.cpuTypes[Random.Range(0, gameController.cpuTypes.Length)]);
+
+            //Set color and icon
+            if (gameController.carColors[i])
             {
-                Renderer carRenderer = carCPU.GetComponentInChildren<Renderer>();
-                carRenderer.material = gamecontroller.carColors[i];
+                Renderer carRenderer = car.GetComponentInChildren<Renderer>();
+                carRenderer.material = gameController.carColors[i];
+                car.icon = gameController.carIcons[i];
             }
+
+            //Add Car to Game Controller
+            gameController.cars.Add(car);
+            car.SetGameController(gameController);
         }
-        carPlayer = (Instantiate(gamecontroller.player1Prefab, gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].position, gamecontroller.startPoints[gamecontroller.startPoints.Count - 1].rotation) as GameObject).GetComponent<Car>();
-        carPlayer.SetGameController(gamecontroller);
-        Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(carPlayer.transform.position);
-        gamecontroller.finishedCars = 0;
-        gamecontroller.ui.SetTotalLaps(gamecontroller.lapsLimit);
 
-        //Init Menu
-        gameController.menuUI.DeactivateMenu();
-        gameController.ui.ActivateRaceUI();
+        //Generate Player car
+        carPlayer = Instantiate(gameController.player1Prefab, gameController.startPoints[gameController.startPoints.Count - 1].position, gameController.startPoints[gameController.startPoints.Count - 1].rotation).GetComponent<Car>();
 
-        StartCoroutine(gamecontroller.CountDown(3));
+        //Add Car to Game Controller
+        gameController.cars.Add(carPlayer);
+        carPlayer.SetGameController(gameController);
+
+        //Init camera
+        //Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(carPlayer.transform.position);
+        Camera.main.gameObject.GetComponent<CameraFollow>().target = carPlayer.transform;
+
+        //Init UI
+        menuUI.DeactivateMenu();
+        gameUI.ActivateRaceUI();
+        gameUI.SetTotalLaps(gameController.lapsLimit);
+        gameUI.SetCurrentLap(carPlayer.lap);
+        gameUI.UpdateP1Speed(carPlayer.ForwardVelocity().magnitude, carPlayer.maxSpeed);
+        gameUI.SetTotalTime(totalTime);
+
+        //Init mode variables
+        totalTime = 0f;
+
+        //Count down starts
+        StartCoroutine(gameController.CountDown(3));
     }
-        // Use this for initialization
-        void Start () {
-        
-    }
-
-    private void Update()
+    
+    void LateUpdate ()
     {
-        Camera.main.gameObject.GetComponent<CameraFollow>().target = (carPlayer.transform);
+        totalTime += Time.deltaTime;
+
+        //Camera follows player
+        Camera.main.gameObject.GetComponent<CameraFollow>().target = carPlayer.transform;
 
         //Update UI
-        ui.UpdateP1Speed(carPlayer.ForwardVelocity().magnitude, carPlayer.maxSpeed);
-        //ui.SetSpeedSlider(carPlayer.ForwardVelocity().magnitude / carPlayer.maxSpeed);
-        //ui.SetSpeedText(Mathf.RoundToInt(Mathf.Clamp(carPlayer.ForwardVelocity().magnitude, 0, carPlayer.maxSpeed)));
-        ui.SetCurrentLap(carPlayer.lap);
-        ui.PrintTime(gamecontroller.totalTime);
-    }
+        gameUI.SetCurrentLap(carPlayer.lap);
+        gameUI.UpdateP1Speed(carPlayer.ForwardVelocity().magnitude, carPlayer.maxSpeed);
+        gameUI.SetTotalTime(totalTime);
 
-    // Update is called once per frame
-    void LateUpdate () {
+        gameUI.SetFirstPosition(gameController.cars[0].icon);
+        gameUI.SetSecondPosition(gameController.cars[1].icon);
+        gameUI.SetThirdPosition(gameController.cars[2].icon);
+        gameUI.SetFourthPosition(gameController.cars[3].icon);
 
-        ui.SetFirstPosition(gamecontroller.cars[0].icon);
-        ui.SetSecondPosition(gamecontroller.cars[1].icon);
-        ui.SetThirdPosition(gamecontroller.cars[2].icon);
-        ui.SetFourthPosition(gamecontroller.cars[3].icon);
-        if (gamecontroller.finishedCars >= gamecontroller.cars.Count - 1 || carPlayer.lap > gamecontroller.lapsLimit) {
-            if (carPlayer.lap > gamecontroller.lapsLimit)
-                carPlayer.lap = gamecontroller.lapsLimit;
-            gamecontroller.GameOver();
+        //Check Game Over conditions
+        int finished = 0;
+        for(int i = 0; i < gameController.cars.Count; i++)
+        {
+            Car car = gameController.cars[i];
+            if (car.lap > gameController.lapsLimit)
+            {
+                finished++;
+            }
+        }
+
+        if (finished >= gameController.cars.Count - 1 || carPlayer.lap > gameController.lapsLimit) {
+            if (carPlayer.lap > gameController.lapsLimit)
+                carPlayer.lap = gameController.lapsLimit;
             
-            int pos = gamecontroller.GetCarPosition(carPlayer);
+            int pos = gameController.GetCarPosition(carPlayer);
             string resultText = "";
             switch (pos)
             {
@@ -84,7 +107,8 @@ public class RaceMode : GameMode {
             }
             resultText = "You finished " + resultText;
 
-            ui.SetResultText(resultText);
+            gameUI.SetResultText(resultText);
+            gameController.GameOver();
         }
 	}
 }

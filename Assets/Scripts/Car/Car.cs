@@ -87,28 +87,27 @@ public class Car : MonoBehaviour
         totalCheckpoints++;
         currentCheckpoint = nextCheckpoint;
         nextCheckpoint++;
-        if (nextCheckpoint == gameController.waypoints.Count)
+        if (nextCheckpoint == gameController.checkPoints.Count)
         {
             nextCheckpoint = 0;
             lap++;
-            gameController.NotifyLap(lap);
         }
-        return gameController.GetWaypointPosition(nextCheckpoint);
+        return gameController.checkPoints[nextCheckpoint];
     }
 
     public Transform NextCheckpoint()
     {
         int next = nextCheckpoint + 1;
-        if (next == gameController.waypoints.Count)
+        if (next == gameController.checkPoints.Count)
         {
             next = 0;
         }
-        return gameController.GetWaypointPosition(nextCheckpoint);
+        return gameController.checkPoints[nextCheckpoint];
     }
 
     public void UpdateTotalDistance()
     {
-        totalDistance = totalCheckpoints * 10000 - (gameController.GetWaypointPosition(nextCheckpoint).position - transform.position).magnitude;
+        totalDistance = totalCheckpoints * 10000 - (gameController.checkPoints[nextCheckpoint].position - transform.position).magnitude;
     }
 
     public bool IsVisibleInCamera()
@@ -124,8 +123,8 @@ public class Car : MonoBehaviour
 
     public void Respawn(Vector3 offset)
     {
-        transform.position = gameController.waypoints[currentCheckpoint].position;
-        transform.rotation = Quaternion.LookRotation(gameController.waypoints[currentCheckpoint].forward);
+        transform.position = gameController.checkPoints[currentCheckpoint].position;
+        transform.rotation = Quaternion.LookRotation(gameController.checkPoints[currentCheckpoint].forward);
         //transform.LookAt(gameController.waypoints[nextCheckpoint]);
         transform.Translate(offset);
         rigidBody.velocity = Vector3.zero;
@@ -134,7 +133,7 @@ public class Car : MonoBehaviour
     public void SetGameController(GameController gc)
     {
         gameController = gc;
-        gameController.AddCar(this);
+        //gameController.AddCar(this);
     }
 
 	public float GetSpeed(){

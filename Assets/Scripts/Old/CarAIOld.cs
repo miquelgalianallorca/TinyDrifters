@@ -71,12 +71,12 @@ public class CarAIOld : MonoBehaviour
     void Update()
     {
         //Goal detection
-        goal = gc.GetWaypointPosition(waypointIndex).position;
+        goal = gc.checkPoints[waypointIndex].position;
         //goal.y = transform.position.y;
         if ((transform.position - goal).magnitude < goalDistance)
         {
             waypointIndex++;
-            if (waypointIndex == gc.waypoints.Count)
+            if (waypointIndex == gc.checkPoints.Count)
             {
                 waypointIndex = 0;
             }

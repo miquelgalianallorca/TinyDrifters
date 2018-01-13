@@ -19,8 +19,8 @@ public class UIManagement : MonoBehaviour
     public Text p2SpeedText;
     public Text countDownText;
     public Text resultText;
-    public Text p1LivesText;
-    public Text p2LivesText;
+    public Text p1PointsText;
+    public Text p2PointsText;
     public Sprite player1Sprite;
     public Sprite player2Sprite;
     public Sprite com1Sprite;
@@ -168,7 +168,7 @@ public class UIManagement : MonoBehaviour
         resultText.text = text;
     }
 
-    public void PrintTime(float totalTime)
+    public void SetTotalTime(float totalTime)
     {
         int minutes = Mathf.FloorToInt(totalTime / 60f);
         int seconds = Mathf.FloorToInt(totalTime % 60f);
@@ -176,10 +176,10 @@ public class UIManagement : MonoBehaviour
         SetMinutes(minutes);
     }
 
-    public void SetLives(int p1Lives, int p2Lives)
+    public void SetPoints(int p1Points, int p2Points)
     {
-        p1LivesText.text = p1Lives.ToString();
-        p2LivesText.text = p2Lives.ToString();
+        p1PointsText.text = p1Points.ToString();
+        p2PointsText.text = p2Points.ToString();
     }
 
     public void ActivateDemoUI()

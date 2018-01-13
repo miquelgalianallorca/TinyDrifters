@@ -4,53 +4,42 @@ using UnityEngine;
 
 public class DemoMode : GameMode
 {
-    UIManagement ui;
-    Car carPlayer;
-
-
     public override void Activate()
     {
-        //Init cars
-        gameController.DestroyAllCars();
+        //Generate CPU cars
         for (int i = 0; i < gameController.startPoints.Count; i++)
         {
-            GameObject carCPU = Instantiate(gameController.cpuPrefab, gameController.startPoints[i].position, gameController.startPoints[i].rotation) as GameObject;
-            carCPU.GetComponent<Car>().SetGameController(gameController);
-            carCPU.GetComponent<Car>().Init(gameController.cpuTypes[Random.Range(0, gameController.cpuTypes.Length)]);
-            carCPU.GetComponent<Car>().icon = gameController.carIcons[i];
-            // Car color
+            Car car = Instantiate(gameController.cpuPrefab, gameController.startPoints[i].position, gameController.startPoints[i].rotation).GetComponent<Car>() ;
+
+            //Pick random AI
+            car.Init(gameController.cpuTypes[Random.Range(0, gameController.cpuTypes.Length)]);
+
+            //Set color and icon
             if (gameController.carColors[i])
             {
-                Renderer carRenderer = carCPU.GetComponentInChildren<Renderer>();
+                Renderer carRenderer = car.GetComponentInChildren<Renderer>();
                 carRenderer.material = gameController.carColors[i];
+                car.icon = gameController.carIcons[i];
             }
+
+            //Add Car to Game Controller
+            gameController.cars.Add(car);
+            car.SetGameController(gameController);
         }
 
         //Init camera
-        Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gameController.cars[0].transform.position);
+        //Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gameController.cars[0].transform.position);
 
         //Init UI
-        gameController.menuUI.ActivateMainMenu();
-        gameController.ui.ActivateDemoUI();
+        menuUI.ActivateMainMenu();
+        gameUI.ActivateDemoUI();
 
-        gameController.finishedCars = 0;
-        this.enabled = true;
+        //enabled = true;
     }
 
-    // Use this for initialization
-    void Start()
+    void LateUpdate()
     {
-        //gameController = GetComponent<GameController>();
-        //ui = gameController.ui;
-        
-        
-        
-        //StartCoroutine(gamecontroller.CountDown(3));
-        //gameController.ui.gameObject.SetActive(false);
-    }
-
-    private void Update()
-    {
-        Camera.main.gameObject.GetComponent<CameraFollow>().target = (gameController.cars[0].transform);
+        //Camara follows first car
+        Camera.main.gameObject.GetComponent<CameraFollow>().target = gameController.cars[0].transform;
     }
 }

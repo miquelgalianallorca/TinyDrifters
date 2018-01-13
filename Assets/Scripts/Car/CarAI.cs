@@ -24,7 +24,7 @@ public class CarAI : MonoBehaviour
         if (waypoint != car.nextCheckpoint)
         {
             waypoint = car.nextCheckpoint;
-            goal = GetPositionAroundObject(car.gameController.GetWaypointPosition(waypoint));
+            goal = GetPositionAroundObject(car.gameController.checkPoints[waypoint]);
         }
         Vector3 targetDir = goal - transform.position;
         float step = car.rotationSpeed * Time.deltaTime * Mathf.Deg2Rad;

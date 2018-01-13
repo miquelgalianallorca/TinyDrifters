@@ -4,55 +4,71 @@ using UnityEngine;
 
 public class VersusMode : GameMode
 {
-
     Car carPlayer1;
     Car carPlayer2;
+
     public override void Activate()
     {
-        gamecontroller = GetComponent<GameController>();
-        carPlayer1 = (Instantiate(gamecontroller.player1Prefab, gamecontroller.startPoints[0].position, gamecontroller.startPoints[0].rotation) as GameObject).GetComponent<Car>();
-        carPlayer1.SetGameController(gamecontroller);
+        //Generate Player1 car
+        carPlayer1 = Instantiate(gameController.player1Prefab, gameController.startPoints[0].position, gameController.startPoints[0].rotation).GetComponent<Car>();
 
-        carPlayer2 = (Instantiate(gamecontroller.player2Prefab, gamecontroller.startPoints[1].position, gamecontroller.startPoints[1].rotation) as GameObject).GetComponent<Car>();
-        carPlayer2.SetGameController(gamecontroller);
-        Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gamecontroller.cars[0].transform.position);
+        //Add Car to Game Controller
+        gameController.cars.Add(carPlayer1);
+        carPlayer1.SetGameController(gameController);
 
-        gameController.menuUI.DeactivateMenu();
-        gameController.ui.ActivateVersusUI();
-        gamecontroller.ui.SetLives(carPlayer1.points, carPlayer2.points);
-        StartCoroutine(gamecontroller.CountDown(3));
+        //Generate Player2 car
+        carPlayer2 = Instantiate(gameController.player2Prefab, gameController.startPoints[1].position, gameController.startPoints[1].rotation).GetComponent<Car>();
+
+        //Add Car to Game Controller
+        gameController.cars.Add(carPlayer2);
+        carPlayer2.SetGameController(gameController);
+
+        //Init camera
+        //Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gameController.cars[0].transform.position);
+        Camera.main.gameObject.GetComponent<CameraFollow>().target = gameController.cars[0].transform;
+
+        //Init UI
+        menuUI.DeactivateMenu();
+        gameUI.ActivateVersusUI();
+        gameUI.SetPoints(carPlayer1.points, carPlayer2.points);
+
+        //Count down starts
+        StartCoroutine(gameController.CountDown(3));
     }
 
-    // Use this for initialization
-    void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        Camera.main.gameObject.GetComponent<CameraFollow>().target = (gamecontroller.cars[0].gameObject.transform);
-    }
-
-    // Update is called once per frame
     void LateUpdate()
     {
-        gamecontroller.ui.UpdateP1Speed(carPlayer1.ForwardVelocity().magnitude, carPlayer1.maxSpeed);
-        gamecontroller.ui.UpdateP2Speed(carPlayer2.ForwardVelocity().magnitude, carPlayer2.maxSpeed);
-        Car firstCar = gamecontroller.cars[0];
-        Car secondCar = gamecontroller.cars[1];
+        gameUI.SetPoints(carPlayer1.points, carPlayer2.points);
+        Car firstCar = gameController.cars[0];
+        Car secondCar = gameController.cars[1];
+
+        //Camera follows first
+        Camera.main.gameObject.GetComponent<CameraFollow>().target = firstCar.transform;
+
+        //Update UI
+        gameUI.UpdateP1Speed(carPlayer1.ForwardVelocity().magnitude, carPlayer1.maxSpeed);
+        gameUI.UpdateP2Speed(carPlayer2.ForwardVelocity().magnitude, carPlayer2.maxSpeed);
+
+        //Check round winner
         if (!secondCar.IsVisibleInCamera())
         {
             firstCar.points++;
-            gamecontroller.ui.SetLives(carPlayer1.points, carPlayer2.points);
-            gamecontroller.RespawnAllCars();
-            gamecontroller.ui.UpdateP1Speed(carPlayer1.ForwardVelocity().magnitude, carPlayer1.maxSpeed);
-            gamecontroller.ui.UpdateP2Speed(carPlayer2.ForwardVelocity().magnitude, carPlayer2.maxSpeed);
-            Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gamecontroller.cars[0].transform.position);
+
+            //Respawn cars and reset camera
+            gameController.RespawnAllCars();
+            Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(firstCar.transform.position);
+            //Camera.main.gameObject.GetComponent<CameraFollow>().target = firstCar.transform;
+
+            //Update UI
+            gameUI.SetPoints(carPlayer1.points, carPlayer2.points);
+            gameUI.UpdateP1Speed(carPlayer1.ForwardVelocity().magnitude, carPlayer1.maxSpeed);
+            gameUI.UpdateP2Speed(carPlayer2.ForwardVelocity().magnitude, carPlayer2.maxSpeed);
+
+            //Check Game Over conditions
             if (firstCar.points == gameController.pointsLimit)
             {
-                gamecontroller.GameOver();
-                gamecontroller.ui.SetResultText(firstCar.carName + " Wins");
+                gameUI.SetResultText(firstCar.carName + " Wins");
+                gameController.GameOver();
             }
             else
             {
@@ -63,9 +79,9 @@ public class VersusMode : GameMode
 
     public IEnumerator RoundResult(int seconds, string player)
     {
-        gamecontroller.DeactivateAllCars();
-        gamecontroller.ui.SetResultText(player + " Wins Round");
+        gameController.DeactivateAllCars();
+        gameUI.SetResultText(player + " Wins Round");
         yield return new WaitForSeconds(seconds);
-        StartCoroutine(gamecontroller.CountDown(3));
+        StartCoroutine(gameController.CountDown(3));
     }
 }

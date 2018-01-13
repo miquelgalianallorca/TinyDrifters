@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class GameMode : MonoBehaviour {
+
     protected GameController gameController;
-    protected GameController gamecontroller;
+    protected UIManagement gameUI;
+    protected MenuManagement menuUI;
+
 
     private void Awake()
     {
         this.enabled = false;
         gameController = GetComponent<GameController>();
-        gamecontroller = gameController;
+        gameUI = gameController.gameUI;
+        menuUI = gameController.menuUI;
     }
 
-
     public abstract void Activate();
-    
-    public void Deactivate () {
-        this.enabled = false;
-        gameController.DestroyAllCars();
-        gameController.menuUI.ActivateRetryMenu();
-	}
 }
