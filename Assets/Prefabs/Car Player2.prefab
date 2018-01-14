@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1209925824377380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1099999, y: 0.36273, z: -2.3444996}
+  m_LocalPosition: {x: 1.1099999, y: 0.5, z: -2.3444996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4276431391436192}
@@ -175,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1476379700279434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1099998, y: 0.36273, z: -2.3444996}
+  m_LocalPosition: {x: -1.1099998, y: 0.5, z: -2.3444996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4276431391436192}
@@ -408,6 +408,7 @@ MonoBehaviour:
   carName: Player2
   icon: {fileID: 21300000, guid: 31c4d7582917b8f4987be82c5eeb811e, type: 3}
   waypointOffset: 0
+  brakeProbability: 0
 --- !u!114 &114752662578559492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,6 +421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skidMarkPrefab: {fileID: 96811904621391966, guid: c01dae8fa74945d499f591babfca0b72,
+    type: 2}
+  skidMarkRedPrefab: {fileID: 96811904621391966, guid: 8c2a3cd98ebbefa4abfdf23d70a8c00d,
     type: 2}
   skidMarkRightPos: {fileID: 4102352248792668}
   skidMarkLeftPos: {fileID: 4598322094274086}

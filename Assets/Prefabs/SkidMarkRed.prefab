@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4668474523557960}
   - component: {fileID: 96811904621391966}
   m_Layer: 0
-  m_Name: SkidMark
+  m_Name: SkidMarkRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d059f57ea8960b4b942c4f027958c68, type: 2}
+  - {fileID: 2100000, guid: 4953a727e9dbc1a40acdf460b0994fc0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
