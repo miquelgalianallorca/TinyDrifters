@@ -12,6 +12,7 @@ public class Checkpoint : MonoBehaviour
         Car car = other.gameObject.GetComponent<Car>();
         if (car)
         {
+            car.AdjustSpeedByPosition();
             if (checkPointNum == car.nextCheckpoint)
             {
                 car.CheckpointPassed();

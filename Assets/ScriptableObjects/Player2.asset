@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 545ac6413b0ca964da26cc1ccda48a75, type: 3}
-  m_Name: CPU Hard
+  m_Name: Player2
   m_EditorClassIdentifier: 
-  carName: CPU Hard
-  accelerationForce: 100
-  maxSpeed: 34
-  rotationSpeed: 280
-  driftFactor: 1
-  waypointOffset: 10
+  carName: Player2
+  accelerationForce: 70
+  maxSpeed: 30
+  rotationSpeed: 100
+  driftFactor: 0.8
+  waypointOffset: 0
   brakeProbability: 0

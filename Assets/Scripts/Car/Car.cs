@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
+    public CarProperties stats;
 
-    public float accelerationForce = 10;
-    public float maxSpeed = 30;
-    public float rotationSpeed = 100;
-    public GameController gameController;
+    Rigidbody rigidBody;
+    [HideInInspector] public GameController gameController;
+    [HideInInspector] public Sprite icon;
 
-    public float driftFactor = 0;
-    public Rigidbody rigidBody;
+    //Properties obtain from scriptable object
+    [HideInInspector] public float accelerationForce;
+    [HideInInspector] public float maxSpeed;
+    [HideInInspector] public float rotationSpeed;
+    [HideInInspector] public float driftFactor;
+    [HideInInspector] public float waypointOffset;
+    [HideInInspector] public float brakeProbability;
+    [HideInInspector] public string carName;
 
-    public int currentCheckpoint;
-    public int nextCheckpoint;
-    public int totalCheckpoints;
-    public int lap;
-    public float totalDistance;
-    public int points = 0;
-    public string carName;
-    public Sprite icon;
-
-    public float waypointOffset;
-    public float brakeProbability;
-
+    //Gameplay variables
+    [HideInInspector] public int currentCheckpoint;
+    [HideInInspector] public int nextCheckpoint;
+    [HideInInspector] public int totalCheckpoints;
+    [HideInInspector] public int lap;
+    [HideInInspector] public float totalDistance;
+    [HideInInspector] public int points;
+    
     public void Init(CarProperties properties)
     {
+        stats = properties;
         accelerationForce = properties.accelerationForce;
         maxSpeed = properties.maxSpeed;
         rotationSpeed = properties.rotationSpeed;
@@ -158,4 +161,10 @@ public class Car : MonoBehaviour
 	public float GetSpeed(){
 		return rigidBody.velocity.magnitude;
 	}
+
+    public void AdjustSpeedByPosition()
+    {
+        int pos = gameController.GetCarPosition(this) - 1;
+        maxSpeed = stats.maxSpeed * (1 + 0.03f * pos);
+    }
 }

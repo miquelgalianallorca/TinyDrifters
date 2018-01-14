@@ -16,5 +16,5 @@ MonoBehaviour:
   maxSpeed: 32
   rotationSpeed: 280
   driftFactor: 1
-  waypointOffset: 10
+  waypointOffset: 8
   brakeProbability: 0

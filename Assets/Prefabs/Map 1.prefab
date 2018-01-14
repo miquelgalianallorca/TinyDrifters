@@ -16127,6 +16127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114046651392292956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16139,6 +16140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114278814030518106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16151,6 +16153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114353754461353306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16163,6 +16166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114369678826741134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16175,6 +16179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114370730782590870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16187,6 +16192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114396919974577898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16199,6 +16205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 1000
+  brakeFactor: 1
 --- !u!114 &114424226300884974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16211,6 +16218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114426725282923694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16223,6 +16231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 1000
+  brakeFactor: 1
 --- !u!114 &114553654372530504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16235,6 +16244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114657369114395786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16247,6 +16257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114796365581675448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16259,6 +16270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114815940170974404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16271,6 +16283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114820959911434222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16283,6 +16296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 1000
+  brakeFactor: 1
 --- !u!114 &114834060520974330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16295,6 +16309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114861766017218912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16307,6 +16322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114894520767141260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16319,6 +16335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 1000
+  brakeFactor: 1
 --- !u!114 &114959045775440632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16331,6 +16348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!114 &114966044322444432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16343,6 +16361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNum: 0
+  brakeFactor: 0
 --- !u!136 &136007488166913862
 CapsuleCollider:
   m_ObjectHideFlags: 1

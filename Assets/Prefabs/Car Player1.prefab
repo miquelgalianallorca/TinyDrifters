@@ -377,6 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b93e78be7eed54fa1d093a4a4c986b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 3892bee29036778458e1bd3854a2e8e9, type: 2}
   accelerationForce: 70
   maxSpeed: 30
   rotationSpeed: 100
@@ -420,15 +421,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d03ee683b31914a8c24129d938c4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skidMarkRightPos: {fileID: 4031901522809204}
+  skidMarkLeftPos: {fileID: 4780521156742960}
   skidMarkPrefab: {fileID: 96811904621391966, guid: c01dae8fa74945d499f591babfca0b72,
     type: 2}
   skidMarkRedPrefab: {fileID: 96811904621391966, guid: 8c2a3cd98ebbefa4abfdf23d70a8c00d,
     type: 2}
-  skidMarkRightPos: {fileID: 4031901522809204}
-  skidMarkLeftPos: {fileID: 4780521156742960}
-  skidMarksMaterials:
-  - {fileID: 2100000, guid: 4d059f57ea8960b4b942c4f027958c68, type: 2}
-  - {fileID: 2100000, guid: 4953a727e9dbc1a40acdf460b0994fc0, type: 2}
   horizontalAxis: Horizontal
   verticalAxis: Vertical
   drift: Drift
