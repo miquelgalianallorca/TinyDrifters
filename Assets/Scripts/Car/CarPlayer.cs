@@ -7,7 +7,8 @@ public class CarPlayer : MonoBehaviour
 
     Car car;
     public TrailRenderer skidMarkPrefab;
-    public Transform skidMarkRightPos;
+	public TrailRenderer skidMarkRedPrefab;
+	public Transform skidMarkRightPos;
     public Transform skidMarkLeftPos;
     TrailRenderer skidMarkRight;
     TrailRenderer skidMarkLeft;
@@ -48,15 +49,37 @@ public class CarPlayer : MonoBehaviour
             }
             else if (driftTime > 2f && driftTime < 2.5f)
             {
-                skidMarkRight.material = skidMarksMaterials[1];
-                skidMarkLeft.material = skidMarksMaterials[1];
+//                skidMarkRight.material = skidMarksMaterials[1];
+//                skidMarkLeft.material = skidMarksMaterials[1];
+
+				skidMarkRight.gameObject.transform.parent = null;
+				skidMarkRight.autodestruct = true;
+				skidMarkLeft.gameObject.transform.parent = null;
+				skidMarkLeft.autodestruct = true;
+
+				skidMarkRight = Instantiate(skidMarkRedPrefab, skidMarkRightPos.position, skidMarkRightPos.rotation) as TrailRenderer;
+				skidMarkRight.gameObject.transform.parent = skidMarkRightPos.transform;
+				skidMarkLeft = Instantiate(skidMarkRedPrefab, skidMarkLeftPos.position, skidMarkLeftPos.rotation) as TrailRenderer;
+				skidMarkLeft.gameObject.transform.parent = skidMarkLeftPos.transform;
+
                 driftBoost = true;
             }
             else
             {
-                skidMarkRight.material = skidMarksMaterials[0];
-                skidMarkLeft.material = skidMarksMaterials[0];
-                driftBoost = false;
+				skidMarkRight.gameObject.transform.parent = null;
+				skidMarkRight.autodestruct = true;
+				skidMarkLeft.gameObject.transform.parent = null;
+				skidMarkLeft.autodestruct = true;
+
+				skidMarkRight = Instantiate(skidMarkPrefab, skidMarkRightPos.position, skidMarkRightPos.rotation) as TrailRenderer;
+				skidMarkRight.gameObject.transform.parent = skidMarkRightPos.transform;
+				skidMarkLeft = Instantiate(skidMarkPrefab, skidMarkLeftPos.position, skidMarkLeftPos.rotation) as TrailRenderer;
+				skidMarkLeft.gameObject.transform.parent = skidMarkLeftPos.transform;
+
+				//                skidMarkRight.material = skidMarksMaterials[0];
+				//                skidMarkLeft.material = skidMarksMaterials[0];
+
+				driftBoost = false;
             }
             driftTime += Time.deltaTime;
 
