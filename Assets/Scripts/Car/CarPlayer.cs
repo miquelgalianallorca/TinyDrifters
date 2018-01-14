@@ -94,7 +94,7 @@ public class CarPlayer : MonoBehaviour
     void FixedUpdate()
     {
         //Car movement
-        float vertical = vertical = Input.GetAxis(verticalAxis);
+        float vertical = Input.GetAxis(verticalAxis);
         car.Accelerate(vertical);
         if (boost)
         {

@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
         Transform[] startTransforms = starts.GetComponentsInChildren<Transform>();
         for (int i = 0; i < startTransforms.Length; i++)
         {
-            if (startTransforms[i] != starts.transform)
+            if (startTransforms[i].CompareTag("StartPoint"))
             {
                 startPoints.Add(startTransforms[i].transform);
             }

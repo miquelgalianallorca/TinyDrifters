@@ -42,7 +42,7 @@ public class Car : MonoBehaviour
         currentCheckpoint = 0;
         nextCheckpoint = 0;
         totalDistance = 0;
-        lap = 1;
+        lap = 0;
         //gameController.AddCar(this);
 
 		carSoundManager = GetComponent<CarSoundManager> ();
@@ -99,6 +99,9 @@ public class Car : MonoBehaviour
         if (nextCheckpoint == gameController.checkPoints.Count)
         {
             nextCheckpoint = 0;
+        }
+        else if (nextCheckpoint == 1)
+        {
             lap++;
         }
         return gameController.checkPoints[nextCheckpoint];
