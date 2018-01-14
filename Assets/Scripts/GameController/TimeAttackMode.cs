@@ -44,8 +44,10 @@ public class TimeAttackMode : GameMode
         if (!timeBonus)
         {
             //calculate random position
-            int random = Random.Range(0, gameController.checkPoints.Count - 1);
-            timeBonus = Instantiate(gameController.timeBonusPrefab, gameController.checkPoints[random].transform.position, gameController.checkPoints[random].transform.rotation);
+            int randomCheckPoint = Random.Range(0, gameController.checkPoints.Count - 1);
+            Vector3 randomPos = gameController.checkPoints[randomCheckPoint].transform.position + Random.insideUnitSphere * 20;
+            randomPos.y = gameController.timeBonusPrefab.transform.position.y;
+            timeBonus = Instantiate(gameController.timeBonusPrefab, randomPos, gameController.checkPoints[randomCheckPoint].transform.rotation);
             timeBonus.gameMode = this;
         }
 

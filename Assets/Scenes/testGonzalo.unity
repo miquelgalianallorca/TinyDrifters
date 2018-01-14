@@ -671,7 +671,7 @@ Transform:
   m_Children:
   - {fileID: 1542718115}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 37.403, y: 26.299, z: 0}
 --- !u!114 &1105684487
 MonoBehaviour:
@@ -798,7 +798,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4839978691274658, guid: 957d7c86bbbb88545b61bcc1f0c0d253, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1372470022568376, guid: 957d7c86bbbb88545b61bcc1f0c0d253, type: 2}
       propertyPath: m_Name
@@ -904,6 +904,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1510592390 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1372470022568376, guid: 957d7c86bbbb88545b61bcc1f0c0d253,
+    type: 2}
+  m_PrefabInternal: {fileID: 1144706219}
+--- !u!95 &1510592392
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1510592390}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d23dc65a70b0f746b4d34247084989b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1542718114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,11 +1077,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1d74827050524bbad77ff85bd9d0a, type: 3}
   - {fileID: 21300000, guid: a80a1f505c6d9fb429816ef5c691736d, type: 3}
   - {fileID: 21300000, guid: 9dd6f4d372053fc409a47bbc314935ce, type: 3}
-  timeBonusPrefab: {fileID: 114219989449693274, guid: fbbdc5619ab607b4184bcbc0f40ef3e6,
+  timeBonusPrefab: {fileID: 114830577467824484, guid: 53cc48aafb8d0964a9e6fd143e3af488,
     type: 2}
   lapsLimit: 3
   pointsLimit: 3
-  timeLimit: 200
+  timeLimit: 30
   gameUI: {fileID: 701806479}
   menuUI: {fileID: 820515386}
 --- !u!4 &1912466079
@@ -1073,7 +1095,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2040980226
 GameObject:
