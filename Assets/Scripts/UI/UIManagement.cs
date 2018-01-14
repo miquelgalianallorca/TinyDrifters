@@ -21,6 +21,8 @@ public class UIManagement : MonoBehaviour
     public Text resultText;
     public Text p1PointsText;
     public Text p2PointsText;
+    public Text timeLeftMinutesText;
+    public Text timeLeftSecondsText;
     public Sprite player1Sprite;
     public Sprite player2Sprite;
     public Sprite com1Sprite;
@@ -28,6 +30,7 @@ public class UIManagement : MonoBehaviour
     public Sprite com3Sprite;
     public GameObject racePanel;
     public GameObject versusPanel;
+    public GameObject timePanel;
 
     public enum Racers
     {
@@ -176,6 +179,14 @@ public class UIManagement : MonoBehaviour
         SetMinutes(minutes);
     }
 
+    public void SetTimeLeftTime(float totalTime)
+    {
+        int minutes = Mathf.FloorToInt(totalTime / 60f);
+        int seconds = Mathf.FloorToInt(totalTime % 60f);
+        timeLeftSecondsText.text = seconds.ToString("D2") + "''";
+        timeLeftMinutesText.text = minutes.ToString("D2") + "''";
+    }
+
     public void SetPoints(int p1Points, int p2Points)
     {
         p1PointsText.text = p1Points.ToString();
@@ -192,8 +203,8 @@ public class UIManagement : MonoBehaviour
         gameObject.SetActive(true);
         racePanel.SetActive(true);
         versusPanel.SetActive(false);
+        timePanel.SetActive(false);
         UpdateP1Speed(0,0);
-
     }
 
     public void ActivateVersusUI()
@@ -201,8 +212,18 @@ public class UIManagement : MonoBehaviour
         gameObject.SetActive(true);
         versusPanel.SetActive(true);
         racePanel.SetActive(false);
+        timePanel.SetActive(false);
         UpdateP1Speed(0, 0);
         UpdateP2Speed(0, 0);
+    }
+
+    public void ActivateTimeUI()
+    {
+        gameObject.SetActive(true);
+        timePanel.SetActive(true);
+        racePanel.SetActive(false);
+        versusPanel.SetActive(false);
+        UpdateP1Speed(0, 0);
     }
 
     public void UpdateP1Speed(float currentSpeed, float maxSpeed)

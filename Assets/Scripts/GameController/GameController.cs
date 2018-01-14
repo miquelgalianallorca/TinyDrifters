@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     //Game mode options
     public int lapsLimit;
     public int pointsLimit;
+    public int timeLimit;
     GameMode gameMode;
 
     //UI
@@ -157,7 +158,10 @@ public class GameController : MonoBehaviour
             case "versus":
                 gameMode = gameObject.AddComponent<VersusMode>();
                 break;
-            case "demo":
+            case "time":
+                gameMode = gameObject.AddComponent<TimeAttackMode>();
+                break;
+            default:
                 gameMode = gameObject.AddComponent<DemoMode>();
                 break;
         }
