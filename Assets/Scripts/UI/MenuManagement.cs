@@ -15,9 +15,19 @@ public class MenuManagement : MonoBehaviour {
 	private int highlightFontSize;
     public GameObject mainMenuPanel;
     public GameObject retryPanel;
+	public GameObject controlsExplanation;
+
+	private GameController gameController;
+	private string wantedGameMode;
 
     // Use this for initialization
     void Start () {
+		GameObject gameControllerObj = GameObject.Find ("GameController");
+		if (gameControllerObj) {
+			gameController = gameControllerObj.GetComponent<GameController> ();
+		}
+		PlayerPrefs.SetInt ("ShowControlsExplanation", 0);
+
 		normalFontSize = 35;
 		highlightFontSize = 42;
 	}
@@ -29,6 +39,22 @@ public class MenuManagement : MonoBehaviour {
 
 		startButton.SetActive (false);
 		Debug.Log ("button clicked");
+	}
+
+	public void SetGameMode(string gameMode) {
+		wantedGameMode = gameMode;
+		if (PlayerPrefs.GetInt("ShowControlsExplanation") == 0) {
+			controlsExplanation.SetActive (true);
+			PlayerPrefs.SetInt ("ShowControlsExplanation", 1);
+		} else {
+			LoadWantedGameMode ();
+		}
+	}
+
+	public void LoadWantedGameMode() {
+		controlsExplanation.SetActive (false);
+		gameController.SetGameMode (wantedGameMode);
+		wantedGameMode = "";
 	}
 
     public void ButtonHover(Text buttonText)
