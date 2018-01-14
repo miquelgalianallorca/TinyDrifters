@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1178520501367722}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalPosition: {x: 0, y: 1.26, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6000001, z: 0.6}
   m_Children: []
   m_Father: {fileID: 4543361675734910}
@@ -126,8 +126,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207653079061866}
-  m_LocalRotation: {x: 0, y: -0.45025432, z: 0, w: 0.89290035}
-  m_LocalPosition: {x: 41.598034, y: -0.050000012, z: -16.01204}
+  m_LocalRotation: {x: 0, y: -0.45025432, z: -0, w: 0.89290035}
+  m_LocalPosition: {x: 12.74, y: -0.4198907, z: -16.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4347742097440314}
@@ -145,6 +145,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -160,6 +161,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -188,7 +190,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &65854007528565204
 BoxCollider:
@@ -224,8 +226,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 1.2, z: 4.8}
-  m_Center: {x: 0, y: 0.35, z: 0.05}
+  m_Size: {x: 2.2496731, y: 1.9729877, z: 4.82322}
+  m_Center: {x: 0.0081413975, y: 1.3563845, z: 0.050738577}
 --- !u!82 &82598607981083696
 AudioSource:
   m_ObjectHideFlags: 1
@@ -352,11 +354,12 @@ MonoBehaviour:
   gameController: {fileID: 0}
   driftFactor: 1
   rigidBody: {fileID: 0}
-  currentWaypoint: 0
-  nextWaypoint: 0
-  totalWaypoints: 0
+  currentCheckpoint: 0
+  nextCheckpoint: 0
+  totalCheckpoints: 0
   lap: 0
   totalDistance: 0
-  lifes: 3
+  points: 0
   carName: 
   icon: {fileID: 0}
+  waypointOffset: 0

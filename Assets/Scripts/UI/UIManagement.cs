@@ -207,13 +207,13 @@ public class UIManagement : MonoBehaviour
 
     public void UpdateP1Speed(float currentSpeed, float maxSpeed)
     {
-        p1SpeedText.text = Mathf.RoundToInt(Mathf.Clamp(currentSpeed, 0, maxSpeed)).ToString();
+        p1SpeedText.text = Mathf.Ceil(Mathf.Clamp(currentSpeed, 0, maxSpeed)).ToString();
         p1TargetSlideValue = Mathf.Clamp(currentSpeed, 0, maxSpeed) / maxSpeed;
     }
 
     public void UpdateP2Speed(float currentSpeed, float maxSpeed)
     {
-        p2SpeedText.text = Mathf.RoundToInt(Mathf.Clamp(currentSpeed, 0, maxSpeed)).ToString();
+        p2SpeedText.text = Mathf.Ceil(Mathf.Clamp(currentSpeed, 0, maxSpeed)).ToString();
         p2TargetSlideValue = Mathf.Clamp(currentSpeed, 0, maxSpeed) / maxSpeed;
     }
 
