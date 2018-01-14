@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public int checkPointNum;
+    [HideInInspector] public int checkPointNum;
     public float brakeFactor = 1f;
 
     void OnTriggerEnter(Collider other)

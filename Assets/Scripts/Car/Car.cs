@@ -48,7 +48,11 @@ public class Car : MonoBehaviour
         nextCheckpoint = 0;
         totalDistance = 0;
         lap = 0;
-        //gameController.AddCar(this);
+
+        if (stats)
+        {
+            Init(stats);
+        }
 
 		carSoundManager = GetComponent<CarSoundManager> ();
     }

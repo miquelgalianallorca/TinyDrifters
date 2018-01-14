@@ -2014,12 +2014,12 @@ Prefab:
     - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 69.41765
+      value: 2635.2812
       objectReference: {fileID: 0}
     - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 512.4757
+      value: -28.398727
       objectReference: {fileID: 0}
     - target: {fileID: 114905287412949880, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
@@ -2094,6 +2094,16 @@ Prefab:
       propertyPath: pausePanel
       value: 
       objectReference: {fileID: 1163398210}
+    - target: {fileID: 114628986380147592, guid: 8cf7941265890dc45846009929b74e8f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114628986380147592, guid: 8cf7941265890dc45846009929b74e8f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cf7941265890dc45846009929b74e8f, type: 2}
   m_IsPrefabParent: 0
@@ -4118,6 +4128,26 @@ Prefab:
     - target: {fileID: 1372470022568376, guid: 957d7c86bbbb88545b61bcc1f0c0d253, type: 2}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 114834060520974330, guid: 957d7c86bbbb88545b61bcc1f0c0d253,
+        type: 2}
+      propertyPath: brakeFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114796365581675448, guid: 957d7c86bbbb88545b61bcc1f0c0d253,
+        type: 2}
+      propertyPath: brakeFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114353754461353306, guid: 957d7c86bbbb88545b61bcc1f0c0d253,
+        type: 2}
+      propertyPath: brakeFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114278814030518106, guid: 957d7c86bbbb88545b61bcc1f0c0d253,
+        type: 2}
+      propertyPath: brakeFactor
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 957d7c86bbbb88545b61bcc1f0c0d253, type: 2}
@@ -8357,6 +8387,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: demo
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1912466078}
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 820515386}

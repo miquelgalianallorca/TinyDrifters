@@ -10,7 +10,7 @@ public class TimeBonus : MonoBehaviour {
     {
         if (gameMode)
         {
-            gameMode.timeLeft += 10;
+            gameMode.timeLeft += 15;
             Destroy(this.gameObject);
         }
     }

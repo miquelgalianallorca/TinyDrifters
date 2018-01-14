@@ -11,6 +11,7 @@ public class VersusMode : GameMode
     {
         //Generate Player1 car
         carPlayer1 = Instantiate(gameController.player1Prefab, gameController.startPoints[0].position, gameController.startPoints[0].rotation).GetComponent<Car>();
+        carPlayer1.carName = "Player1";
 
         //Add Car to Game Controller
         gameController.cars.Add(carPlayer1);
@@ -18,6 +19,7 @@ public class VersusMode : GameMode
 
         //Generate Player2 car
         carPlayer2 = Instantiate(gameController.player2Prefab, gameController.startPoints[1].position, gameController.startPoints[1].rotation).GetComponent<Car>();
+        carPlayer2.carName = "Player2";
 
         //Add Car to Game Controller
         gameController.cars.Add(carPlayer2);

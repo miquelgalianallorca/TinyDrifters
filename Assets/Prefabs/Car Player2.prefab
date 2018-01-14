@@ -232,6 +232,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -247,6 +248,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -420,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b93e78be7eed54fa1d093a4a4c986b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 4861cf36bca493640a2ab5ba7eb98333, type: 2}
+  stats: {fileID: 11400000, guid: 3892bee29036778458e1bd3854a2e8e9, type: 2}
   gameController: {fileID: 0}
   icon: {fileID: 21300000, guid: 31c4d7582917b8f4987be82c5eeb811e, type: 3}
   accelerationForce: 70
