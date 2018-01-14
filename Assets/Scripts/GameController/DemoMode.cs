@@ -28,12 +28,13 @@ public class DemoMode : GameMode
         }
 
         //Init camera
-        //Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gameController.cars[0].transform.position);
+        Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gameController.cars[0].transform);
 
         //Init UI
         menuUI.ActivateMainMenu();
         gameUI.ActivateDemoUI();
 
+        //Uncomment to force camera follow first car in demo mode
         //enabled = true;
     }
 

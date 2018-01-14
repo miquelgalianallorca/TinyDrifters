@@ -45,12 +45,12 @@ public class CameraFollow : MonoBehaviour {
         {
            transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothFactor * Time.deltaTime);
         }
-
     }
 
-    public void SetCameraPosition(Vector3 position)
+    public void SetCameraPosition(Transform newTarget)
     {
-        transform.position = position + offset;
+        transform.position = newTarget.position + offset;
+        target = null;
     }
 
     //IEnumerator Transition()

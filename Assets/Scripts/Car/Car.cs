@@ -75,11 +75,20 @@ public class Car : MonoBehaviour
 
     public void Accelerate(float impulse)
     {
-       rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
-       rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
-       rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
+        if (rigidBody.velocity.magnitude < maxSpeed)
+        {
+            rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
+            rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
+            rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
+        }
+        
 		// Sound
 		if (carSoundManager) carSoundManager.SetVolume (impulse);
+    }
+
+    public void Boost(float impulse)
+    {
+        rigidBody.AddForce(transform.forward * impulse, ForceMode.Impulse);
     }
 
     public Transform CheckpointPassed()
@@ -123,7 +132,7 @@ public class Car : MonoBehaviour
 
     public void Respawn(Vector3 offset)
     {
-        transform.position = gameController.checkPoints[currentCheckpoint].position;
+        transform.position = new Vector3(gameController.checkPoints[currentCheckpoint].position.x, transform.position.y, gameController.checkPoints[currentCheckpoint].position.z);
         transform.rotation = Quaternion.LookRotation(gameController.checkPoints[currentCheckpoint].forward);
         //transform.LookAt(gameController.waypoints[nextCheckpoint]);
         transform.Translate(offset);

@@ -38,7 +38,6 @@ public class RaceMode : GameMode {
         carPlayer.SetGameController(gameController);
 
         //Init camera
-        //Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(carPlayer.transform.position);
         Camera.main.gameObject.GetComponent<CameraFollow>().target = carPlayer.transform;
 
         //Init UI
@@ -48,6 +47,10 @@ public class RaceMode : GameMode {
         gameUI.SetCurrentLap(carPlayer.lap);
         gameUI.UpdateP1Speed(carPlayer.ForwardVelocity().magnitude, carPlayer.maxSpeed);
         gameUI.SetTotalTime(totalTime);
+        gameUI.SetFirstPosition(gameController.cars[0].icon);
+        gameUI.SetSecondPosition(gameController.cars[1].icon);
+        gameUI.SetThirdPosition(gameController.cars[2].icon);
+        gameUI.SetFourthPosition(gameController.cars[3].icon);
 
         //Init mode variables
         totalTime = 0f;
@@ -59,9 +62,6 @@ public class RaceMode : GameMode {
     void LateUpdate ()
     {
         totalTime += Time.deltaTime;
-
-        //Camera follows player
-        Camera.main.gameObject.GetComponent<CameraFollow>().target = carPlayer.transform;
 
         //Update UI
         gameUI.SetCurrentLap(carPlayer.lap);

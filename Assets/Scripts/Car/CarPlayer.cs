@@ -6,6 +6,22 @@ public class CarPlayer : MonoBehaviour
 {
 
     Car car;
+    public TrailRenderer skidMarkPrefab;
+    public Transform skidMarkRightPos;
+    public Transform skidMarkLeftPos;
+    TrailRenderer skidMarkRight;
+    TrailRenderer skidMarkLeft;
+    public Material[] skidMarksMaterials;
+    float driftTime = 0;
+
+    bool driftBoost = false;
+    bool boost = false;
+
+    //Input names
+    public string horizontalAxis;
+    public string verticalAxis;
+    public string drift;
+    public string respawn;
 
     void Start()
     {
@@ -15,44 +31,77 @@ public class CarPlayer : MonoBehaviour
     void Update()
     {
         //Car steering
-        float horizontal = 0;
-        if (gameObject.tag == "Player")
-        {
-            horizontal = Input.GetAxis("Horizontal");
-        }
-        else if (gameObject.tag == "Player2")
-        {
-            horizontal = Input.GetAxis("Horizontal2");
-        }
+        float horizontal= Input.GetAxis(horizontalAxis);
 
         transform.Rotate(Vector3.up, car.rotationSpeed * Time.deltaTime * horizontal);
-
-        if (Input.GetKey(KeyCode.Space))
+        
+        if (Input.GetAxis(drift) != 0)
         {
+            
             car.driftFactor = 1f;
+            if (driftTime == 0)
+            {
+                skidMarkRight = Instantiate(skidMarkPrefab, skidMarkRightPos.position, skidMarkRightPos.rotation) as TrailRenderer;
+                skidMarkRight.gameObject.transform.parent = skidMarkRightPos.transform;
+                skidMarkLeft = Instantiate(skidMarkPrefab, skidMarkLeftPos.position, skidMarkLeftPos.rotation) as TrailRenderer;
+                skidMarkLeft.gameObject.transform.parent = skidMarkLeftPos.transform;
+            }
+            else if (driftTime > 2f && driftTime < 2.5f)
+            {
+                skidMarkRight.material = skidMarksMaterials[1];
+                skidMarkLeft.material = skidMarksMaterials[1];
+                driftBoost = true;
+            }
+            else
+            {
+                skidMarkRight.material = skidMarksMaterials[0];
+                skidMarkLeft.material = skidMarksMaterials[0];
+                driftBoost = false;
+            }
+            driftTime += Time.deltaTime;
+
+            // Instantiate(skidMarkPrefab, skidMarkLeft.position, skidMarkLeft.rotation).transform.parent = skidMarkLeft.transform;
             //car.rotationSpeed = 100;
         }
         else
         {
+            if (driftBoost)
+            {
+                boost = true;
+                driftBoost = false;
+            }
             car.driftFactor = 0.8f;
+            if (skidMarkRight)
+            {
+                skidMarkRight.gameObject.transform.parent = null;
+                skidMarkRight.autodestruct = true;
+            }
+            if (skidMarkLeft)
+            {
+                skidMarkLeft.gameObject.transform.parent = null;
+                skidMarkLeft.autodestruct = true;
+            }
+            driftTime = 0;
+            
             //car.rotationSpeed = 35;
+        }
+        if (Input.GetAxis(respawn) != 0)
+        {
+            car.Respawn(Vector3.zero);
         }
     }
 
     void FixedUpdate()
     {
         //Car movement
-        float vertical = 0;
-        if (gameObject.tag == "Player")
-        {
-            vertical = Input.GetAxis("Vertical");
-        }
-        else if (gameObject.tag == "Player2")
-        {
-            vertical = Input.GetAxis("Vertical2");
-        }
+        float vertical = vertical = Input.GetAxis(verticalAxis);
         car.Accelerate(vertical);
-        
+        if (boost)
+        {
+            car.Boost(700f);
+            boost = false;
+        }
+
         //if (car.rigidBody.velocity.magnitude < car.maxSpeed)
         //{
         //    car.rigidBody.AddForce(transform.forward * 10 * vertical, ForceMode.Impulse);

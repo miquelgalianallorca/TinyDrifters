@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1837132601212094}
   m_IsPrefabParent: 1
+--- !u!1 &1297751391616178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4031901522809204}
+  m_Layer: 0
+  m_Name: SkidMarkRightPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1318597965160748
 GameObject:
   m_ObjectHideFlags: 0
@@ -22,6 +37,21 @@ GameObject:
   - component: {fileID: 65269705309568210}
   m_Layer: 0
   m_Name: KillCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1516001701855840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4780521156742960}
+  m_Layer: 0
+  m_Name: SkidMarkLeftPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,6 +111,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4031901522809204
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1297751391616178}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1099999, y: 0.36273, z: -2.3444996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4461378798397156}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4231774924873572
 Transform:
   m_ObjectHideFlags: 1
@@ -101,12 +144,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1837132601212094}
   m_LocalRotation: {x: 0, y: -0.45025432, z: 0, w: 0.89290035}
-  m_LocalPosition: {x: 38.492493, y: -0.050000012, z: -21.521309}
+  m_LocalPosition: {x: 21.292635, y: -0.050000012, z: -13.702059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4231774924873572}
   - {fileID: 4662815990228578}
   - {fileID: 4725125157574076}
+  - {fileID: 4031901522809204}
+  - {fileID: 4780521156742960}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -53.52, z: 0}
@@ -130,12 +175,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1756969146446778}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalPosition: {x: 0, y: 1.26, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6000001, z: 0.6}
   m_Children: []
   m_Father: {fileID: 4461378798397156}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!4 &4780521156742960
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516001701855840}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.1099998, y: 0.36273, z: -2.3444996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4461378798397156}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23121247906084700
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -145,6 +203,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -160,6 +219,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -188,7 +248,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &65269705309568210
 BoxCollider:
@@ -224,8 +284,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 1.2, z: 4.8}
-  m_Center: {x: 0, y: 0.35, z: 0.05}
+  m_Size: {x: 2.2496731, y: 1.9729877, z: 4.82322}
+  m_Center: {x: 0.0081413975, y: 1.3563845, z: 0.050738577}
 --- !u!82 &82180573641377396
 AudioSource:
   m_ObjectHideFlags: 1
@@ -323,14 +383,15 @@ MonoBehaviour:
   gameController: {fileID: 0}
   driftFactor: 0
   rigidBody: {fileID: 0}
-  currentWaypoint: 0
-  nextWaypoint: 0
-  totalWaypoints: 0
+  currentCheckpoint: 0
+  nextCheckpoint: 0
+  totalCheckpoints: 0
   lap: 0
   totalDistance: 0
-  lifes: 3
+  points: 0
   carName: Player1
   icon: {fileID: 21300000, guid: 9dd6f4d372053fc409a47bbc314935ce, type: 3}
+  waypointOffset: 0
 --- !u!114 &114329136164652274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,3 +419,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d03ee683b31914a8c24129d938c4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skidMarkPrefab: {fileID: 96811904621391966, guid: c01dae8fa74945d499f591babfca0b72,
+    type: 2}
+  skidMarkRightPos: {fileID: 4031901522809204}
+  skidMarkLeftPos: {fileID: 4780521156742960}
+  skidMarksMaterials:
+  - {fileID: 2100000, guid: 4d059f57ea8960b4b942c4f027958c68, type: 2}
+  - {fileID: 2100000, guid: 4953a727e9dbc1a40acdf460b0994fc0, type: 2}
+  horizontalAxis: Horizontal
+  verticalAxis: Vertical
+  drift: Drift
+  respawn: Respawn

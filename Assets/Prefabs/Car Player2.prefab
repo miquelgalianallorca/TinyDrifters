@@ -145,6 +145,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -160,6 +161,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -339,14 +341,15 @@ MonoBehaviour:
   gameController: {fileID: 0}
   driftFactor: 0
   rigidBody: {fileID: 0}
-  currentWaypoint: 0
-  nextWaypoint: 0
-  totalWaypoints: 0
+  currentCheckpoint: 0
+  nextCheckpoint: 0
+  totalCheckpoints: 0
   lap: 0
   totalDistance: 0
-  lifes: 3
+  points: 0
   carName: Player2
   icon: {fileID: 21300000, guid: 31c4d7582917b8f4987be82c5eeb811e, type: 3}
+  waypointOffset: 0
 --- !u!114 &114752662578559492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,3 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d03ee683b31914a8c24129d938c4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalAxis: Horizontal2
+  verticalAxis: Vertical2
+  drift: Drift2
+  respawn: Respawn2

@@ -24,7 +24,6 @@ public class VersusMode : GameMode
         carPlayer2.SetGameController(gameController);
 
         //Init camera
-        //Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(gameController.cars[0].transform.position);
         Camera.main.gameObject.GetComponent<CameraFollow>().target = gameController.cars[0].transform;
 
         //Init UI
@@ -56,8 +55,7 @@ public class VersusMode : GameMode
 
             //Respawn cars and reset camera
             gameController.RespawnAllCars();
-            Camera.main.gameObject.GetComponent<CameraFollow>().SetCameraPosition(firstCar.transform.position);
-            //Camera.main.gameObject.GetComponent<CameraFollow>().target = firstCar.transform;
+            Camera.main.gameObject.GetComponent<CameraFollow>().target = firstCar.transform;
 
             //Update UI
             gameUI.SetPoints(carPlayer1.points, carPlayer2.points);
@@ -72,6 +70,7 @@ public class VersusMode : GameMode
             }
             else
             {
+                enabled = false;
                 StartCoroutine(RoundResult(2, firstCar.carName));
             }
         }
