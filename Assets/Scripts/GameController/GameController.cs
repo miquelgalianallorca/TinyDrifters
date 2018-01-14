@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     public List<Transform> checkPoints = new List<Transform>();
     public List<Transform> startPoints = new List<Transform>();
 
-    //Cars
+    //Cars and prefabs
     public List<Car> cars = new List<Car>();
     public CarProperties[] cpuTypes;
     public GameObject cpuPrefab;
@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     public GameObject player2Prefab;
     public Material[] carColors;
     public Sprite[] carIcons;
+    public TimeBonus timeBonusPrefab;
 
     //Game mode options
     public int lapsLimit;

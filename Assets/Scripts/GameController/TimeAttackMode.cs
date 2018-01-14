@@ -5,8 +5,9 @@ using UnityEngine;
 public class TimeAttackMode : GameMode
 {
     Car carPlayer1;
-    float timeLeft;
+    public float timeLeft;
     float totalTime;
+    TimeBonus timeBonus;
 
     public override void Activate()
     {
@@ -38,6 +39,15 @@ public class TimeAttackMode : GameMode
     {
         timeLeft -= Time.deltaTime;
         totalTime += Time.deltaTime;
+
+        ////Generate random time bonus
+        if (!timeBonus)
+        {
+            //calculate random position
+            int random = Random.Range(0, gameController.checkPoints.Count - 1);
+            timeBonus = Instantiate(gameController.timeBonusPrefab, gameController.checkPoints[random].transform.position, gameController.checkPoints[random].transform.rotation);
+            timeBonus.gameMode = this;
+        }
 
         //Update UI
         gameUI.SetTimeLeftTime(timeLeft);
