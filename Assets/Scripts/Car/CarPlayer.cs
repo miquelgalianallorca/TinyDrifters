@@ -133,10 +133,29 @@ public class CarPlayer : MonoBehaviour
 		}
 	}
 
-	IEnumerator FreeBoostTrail() {
+    public void DestroyTrails()
+    {
+        if (skidMarkRight)
+        {
+            Destroy(skidMarkRight);
+        }
+        if (skidMarkLeft)
+        {
+            Destroy(skidMarkLeft);
+        }
+        if (boostTrail)
+        {
+            Destroy(boostTrail);
+        }
+    }
+
+    IEnumerator FreeBoostTrail() {
 		
 		yield return new WaitForSeconds (1f);
-		boostTrail.gameObject.transform.parent = null;
+        if (boostTrail)
+        {
+            boostTrail.gameObject.transform.parent = null;
+        }
 	}
 
 }

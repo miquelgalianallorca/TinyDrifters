@@ -150,6 +150,11 @@ public class Car : MonoBehaviour
         //transform.LookAt(gameController.waypoints[nextCheckpoint]);
         transform.Translate(offset);
         rigidBody.velocity = Vector3.zero;
+        CarPlayer carPlayer = GetComponent<CarPlayer>();
+        if (carPlayer)
+        {
+            carPlayer.DestroyTrails();
+        }
     }
 
     public void SetGameController(GameController gc)
