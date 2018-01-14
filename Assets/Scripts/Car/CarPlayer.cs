@@ -13,6 +13,11 @@ public class CarPlayer : MonoBehaviour
 	private TrailRenderer activeSkidMark;
     TrailRenderer skidMarkRight;
     TrailRenderer skidMarkLeft;
+
+	public Transform boostTrailPos;
+	public TrailRenderer boostTrailPrefab;
+	TrailRenderer boostTrail;
+
 //    public Material[] skidMarksMaterials;
     float driftTime = 0;
 
@@ -43,10 +48,10 @@ public class CarPlayer : MonoBehaviour
             car.driftFactor = 1f;
             if (driftTime == 0) {
 				UpdateSkidMark (skidMarkPrefab);
+
             } else if (driftTime > 2f && driftTime < 2.5f) {
 				UpdateSkidMark (skidMarkRedPrefab);
                 driftBoost = true;
-
 //                skidMarkRight.material = skidMarksMaterials[1];
 //                skidMarkLeft.material = skidMarksMaterials[1];
             } else {
@@ -66,6 +71,10 @@ public class CarPlayer : MonoBehaviour
         {
             if (driftBoost)
             {
+				boostTrail = Instantiate (boostTrailPrefab, boostTrailPos.position, boostTrailPos.rotation) as TrailRenderer;
+				boostTrail.gameObject.transform.parent = boostTrailPos;
+				StartCoroutine (FreeBoostTrail ());
+
                 boost = true;
                 driftBoost = false;
             }
@@ -123,4 +132,11 @@ public class CarPlayer : MonoBehaviour
 			skidMarkLeft.autodestruct = true;
 		}
 	}
+
+	IEnumerator FreeBoostTrail() {
+		
+		yield return new WaitForSeconds (1f);
+		boostTrail.gameObject.transform.parent = null;
+	}
+
 }
