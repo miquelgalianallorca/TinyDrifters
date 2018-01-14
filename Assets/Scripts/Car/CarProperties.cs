@@ -10,7 +10,6 @@ public class CarProperties : ScriptableObject
     public float maxSpeed = 30f;
     public float rotationSpeed = 280f;
     public float driftFactor = 1f;
-    public float waypointOffset = 0;
-    public float waypointDistance = 3;
-    public Sprite sprite;
+    public float waypointOffset = 0f;
+    public float brakeProbability = 0f;
 }

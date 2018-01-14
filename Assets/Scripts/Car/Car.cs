@@ -23,6 +23,7 @@ public class Car : MonoBehaviour
     public Sprite icon;
 
     public float waypointOffset;
+    public float brakeProbability;
 
     public void Init(CarProperties properties)
     {
@@ -32,6 +33,7 @@ public class Car : MonoBehaviour
         driftFactor = properties.driftFactor;
         carName = properties.carName;
         waypointOffset = properties.waypointOffset;
+        brakeProbability = properties.brakeProbability;
     }
 
 	private CarSoundManager carSoundManager;
@@ -84,6 +86,11 @@ public class Car : MonoBehaviour
         
 		// Sound
 		if (carSoundManager) carSoundManager.SetVolume (impulse);
+    }
+
+    public void Brake(float brakeFactor)
+    {
+        rigidBody.velocity = ForwardVelocity() * (1-brakeFactor) + RightVelocity() + UpVelocity();
     }
 
     public void Boost(float impulse)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public int checkPointNum;
+    public float brakeFactor = 1f;
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,6 +19,15 @@ public class Checkpoint : MonoBehaviour
             else if (checkPointNum != car.currentCheckpoint)
             {
                 car.Respawn(Vector3.zero);
+            }
+            CarAI carAI = other.gameObject.GetComponent<CarAI>();
+            if (carAI)
+            {
+                float brakeProb = car.brakeProbability;
+                if (Random.value < brakeProb)
+                {
+                    car.Brake(brakeFactor);
+                }
             }
         }
     }

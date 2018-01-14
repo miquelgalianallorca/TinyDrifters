@@ -17,5 +17,4 @@ MonoBehaviour:
   rotationSpeed: 280
   driftFactor: 1
   waypointOffset: 5
-  waypointDistance: 3
-  sprite: {fileID: 0}
+  brakeProbability: 1
