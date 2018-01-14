@@ -40,6 +40,9 @@ public class RaceMode : GameMode {
         //Init camera
         Camera.main.gameObject.GetComponent<CameraFollow>().target = carPlayer.transform;
 
+        //Init mode variables
+        totalTime = 0f;
+
         //Init UI
         menuUI.DeactivateMenu();
         gameUI.ActivateRaceUI();
@@ -51,9 +54,6 @@ public class RaceMode : GameMode {
         gameUI.SetSecondPosition(gameController.cars[1].icon);
         gameUI.SetThirdPosition(gameController.cars[2].icon);
         gameUI.SetFourthPosition(gameController.cars[3].icon);
-
-        //Init mode variables
-        totalTime = 0f;
 
         //Count down starts
         StartCoroutine(gameController.CountDown(3));
@@ -86,8 +86,11 @@ public class RaceMode : GameMode {
 
         if (finished >= gameController.cars.Count - 1 || carPlayer.lap > gameController.lapsLimit) {
             if (carPlayer.lap > gameController.lapsLimit)
+            {
                 carPlayer.lap = gameController.lapsLimit;
-            
+                gameUI.SetCurrentLap(carPlayer.lap);
+            }
+
             int pos = gameController.GetCarPosition(carPlayer);
             string resultText = "";
             switch (pos)

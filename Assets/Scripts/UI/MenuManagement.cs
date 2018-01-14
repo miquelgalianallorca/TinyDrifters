@@ -15,7 +15,8 @@ public class MenuManagement : MonoBehaviour {
 	private int highlightFontSize;
     public GameObject mainMenuPanel;
     public GameObject retryPanel;
-	public GameObject controlsExplanation;
+    public GameObject pausePanel;
+    public GameObject controlsExplanation;
 
 	private GameController gameController;
 	private string wantedGameMode;
@@ -108,6 +109,7 @@ public class MenuManagement : MonoBehaviour {
         gameObject.SetActive(true);
         retryPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
 
     public void ActivateRetryMenu()
@@ -115,6 +117,15 @@ public class MenuManagement : MonoBehaviour {
         gameObject.SetActive(true);
         mainMenuPanel.SetActive(false);
         retryPanel.SetActive(true);
+        pausePanel.SetActive(false);
+    }
+
+    public void ActivatePauseMenu()
+    {
+        gameObject.SetActive(true);
+        pausePanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+        retryPanel.SetActive(false);
     }
 
     public void DeactivateMenu()

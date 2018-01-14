@@ -23,8 +23,18 @@ public class CarSoundManager : MonoBehaviour {
 		}
 	}
 
-	// Call from Car when accelerating
-	public void SetVolume(float impulse) {
+    // Call from GameController in Pause
+    public void Pause()
+    {
+        audioSource.Pause();
+    }
+    public void Resume()
+    {
+        audioSource.Play();
+    }
+
+    // Call from Car when accelerating
+    public void SetVolume(float impulse) {
 		audioSource.volume = Mathf.Lerp (minVolume, maxVolume, impulse);
 	}
 

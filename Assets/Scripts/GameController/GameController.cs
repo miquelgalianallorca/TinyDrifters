@@ -69,6 +69,36 @@ public class GameController : MonoBehaviour
             cars[i].UpdateTotalDistance();
         }
         cars = cars.OrderByDescending(car => car.totalDistance).ToList();
+
+        if (gameMode && !(gameMode is DemoMode) && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1)
+                Pause();
+            else
+                Resume();
+        }
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        for (int i = 0; i < cars.Count; i++)
+        {
+            CarSoundManager soundManager = cars[i].GetComponent<CarSoundManager>();
+            if (soundManager) soundManager.Pause();
+        }
+        menuUI.ActivatePauseMenu();
+    }
+
+    public void Resume()
+    {
+        menuUI.DeactivateMenu();
+        Time.timeScale = 1;
+        for (int i = 0; i < cars.Count; i++)
+        {
+            CarSoundManager soundManager = cars[i].GetComponent<CarSoundManager>();
+            if (soundManager) soundManager.Resume();
+        }
     }
 
     public void GameOver()
