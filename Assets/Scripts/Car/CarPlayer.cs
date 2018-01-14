@@ -6,13 +6,14 @@ public class CarPlayer : MonoBehaviour
 {
 
     Car car;
+	public Transform skidMarkRightPos;
+	public Transform skidMarkLeftPos;
     public TrailRenderer skidMarkPrefab;
 	public TrailRenderer skidMarkRedPrefab;
-	public Transform skidMarkRightPos;
-    public Transform skidMarkLeftPos;
+	private TrailRenderer activeSkidMark;
     TrailRenderer skidMarkRight;
     TrailRenderer skidMarkLeft;
-    public Material[] skidMarksMaterials;
+//    public Material[] skidMarksMaterials;
     float driftTime = 0;
 
     bool driftBoost = false;
@@ -40,47 +41,22 @@ public class CarPlayer : MonoBehaviour
         {
             
             car.driftFactor = 1f;
-            if (driftTime == 0)
-            {
-                skidMarkRight = Instantiate(skidMarkPrefab, skidMarkRightPos.position, skidMarkRightPos.rotation) as TrailRenderer;
-                skidMarkRight.gameObject.transform.parent = skidMarkRightPos.transform;
-                skidMarkLeft = Instantiate(skidMarkPrefab, skidMarkLeftPos.position, skidMarkLeftPos.rotation) as TrailRenderer;
-                skidMarkLeft.gameObject.transform.parent = skidMarkLeftPos.transform;
-            }
-            else if (driftTime > 2f && driftTime < 2.5f)
-            {
+            if (driftTime == 0) {
+				UpdateSkidMark (skidMarkPrefab);
+            } else if (driftTime > 2f && driftTime < 2.5f) {
+				UpdateSkidMark (skidMarkRedPrefab);
+                driftBoost = true;
+
 //                skidMarkRight.material = skidMarksMaterials[1];
 //                skidMarkLeft.material = skidMarksMaterials[1];
-
-				skidMarkRight.gameObject.transform.parent = null;
-				skidMarkRight.autodestruct = true;
-				skidMarkLeft.gameObject.transform.parent = null;
-				skidMarkLeft.autodestruct = true;
-
-				skidMarkRight = Instantiate(skidMarkRedPrefab, skidMarkRightPos.position, skidMarkRightPos.rotation) as TrailRenderer;
-				skidMarkRight.gameObject.transform.parent = skidMarkRightPos.transform;
-				skidMarkLeft = Instantiate(skidMarkRedPrefab, skidMarkLeftPos.position, skidMarkLeftPos.rotation) as TrailRenderer;
-				skidMarkLeft.gameObject.transform.parent = skidMarkLeftPos.transform;
-
-                driftBoost = true;
-            }
-            else
-            {
-				skidMarkRight.gameObject.transform.parent = null;
-				skidMarkRight.autodestruct = true;
-				skidMarkLeft.gameObject.transform.parent = null;
-				skidMarkLeft.autodestruct = true;
-
-				skidMarkRight = Instantiate(skidMarkPrefab, skidMarkRightPos.position, skidMarkRightPos.rotation) as TrailRenderer;
-				skidMarkRight.gameObject.transform.parent = skidMarkRightPos.transform;
-				skidMarkLeft = Instantiate(skidMarkPrefab, skidMarkLeftPos.position, skidMarkLeftPos.rotation) as TrailRenderer;
-				skidMarkLeft.gameObject.transform.parent = skidMarkLeftPos.transform;
-
-				//                skidMarkRight.material = skidMarksMaterials[0];
-				//                skidMarkLeft.material = skidMarksMaterials[0];
-
+            } else {
+				UpdateSkidMark (skidMarkPrefab);
 				driftBoost = false;
+
+//                skidMarkRight.material = skidMarksMaterials[0];
+//                skidMarkLeft.material = skidMarksMaterials[0];
             }
+
             driftTime += Time.deltaTime;
 
             // Instantiate(skidMarkPrefab, skidMarkLeft.position, skidMarkLeft.rotation).transform.parent = skidMarkLeft.transform;
@@ -94,16 +70,9 @@ public class CarPlayer : MonoBehaviour
                 driftBoost = false;
             }
             car.driftFactor = 0.8f;
-            if (skidMarkRight)
-            {
-                skidMarkRight.gameObject.transform.parent = null;
-                skidMarkRight.autodestruct = true;
-            }
-            if (skidMarkLeft)
-            {
-                skidMarkLeft.gameObject.transform.parent = null;
-                skidMarkLeft.autodestruct = true;
-            }
+
+			ClearDrifts ();
+
             driftTime = 0;
             
             //car.rotationSpeed = 35;
@@ -131,4 +100,27 @@ public class CarPlayer : MonoBehaviour
         //}
         //car.rigidBody.velocity = car.ForwardVelocity() + car.RightVelocity() * 0.9f + transform.up * Vector3.Dot(car.rigidBody.velocity, transform.up);
     }
+
+	void UpdateSkidMark(TrailRenderer trailPrefab) {
+		if (trailPrefab != activeSkidMark) {
+			ClearDrifts ();
+			activeSkidMark = trailPrefab;
+			skidMarkRight = Instantiate (activeSkidMark, skidMarkRightPos.position, skidMarkRightPos.rotation) as TrailRenderer;
+			skidMarkRight.gameObject.transform.parent = skidMarkRightPos.transform;
+			skidMarkLeft = Instantiate (activeSkidMark, skidMarkLeftPos.position, skidMarkLeftPos.rotation) as TrailRenderer;
+			skidMarkLeft.gameObject.transform.parent = skidMarkLeftPos.transform;
+		}
+	}
+
+	void ClearDrifts() {
+		activeSkidMark = null;
+		if (skidMarkRight) {
+			skidMarkRight.gameObject.transform.parent = null;
+			skidMarkRight.autodestruct = true;
+		}
+		if (skidMarkLeft) {
+			skidMarkLeft.gameObject.transform.parent = null;
+			skidMarkLeft.autodestruct = true;
+		}
+	}
 }
