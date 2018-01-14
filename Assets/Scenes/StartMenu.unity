@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &105185338
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &256132046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1395,7 +1395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &272888631
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2714,7 +2714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &544895678
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4204,7 +4204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &838806351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5071,7 +5071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &1026864453
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5234,7 +5234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &1042877878
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5921,7 +5921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &1159689046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6186,12 +6186,12 @@ Prefab:
     - target: {fileID: 224175032638956078, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 557.5
+      value: 626
       objectReference: {fileID: 0}
     - target: {fileID: 224175032638956078, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 311
+      value: 316.5
       objectReference: {fileID: 0}
     - target: {fileID: 224175032638956078, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
@@ -6276,12 +6276,12 @@ Prefab:
     - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 297.08624
+      value: 80.114716
       objectReference: {fileID: 0}
     - target: {fileID: 224175032638956078, guid: 8cf7941265890dc45846009929b74e8f,
         type: 2}
@@ -6307,6 +6307,47 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -166.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -321.59998
+      objectReference: {fileID: 0}
+    - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 332.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224134353179946736, guid: 8cf7941265890dc45846009929b74e8f,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981835937563950, guid: 8cf7941265890dc45846009929b74e8f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407954938704598, guid: 8cf7941265890dc45846009929b74e8f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981036210469776, guid: 8cf7941265890dc45846009929b74e8f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594772157007068, guid: 8cf7941265890dc45846009929b74e8f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cf7941265890dc45846009929b74e8f, type: 2}
@@ -8181,7 +8222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &1557838433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10603,7 +10644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &1968784881
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11771,7 +11812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d1555660cc0fb4ea2218c2c1e3027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointNum: 0
+  checkPointNum: 0
 --- !u!23 &2073903412
 MeshRenderer:
   m_ObjectHideFlags: 0
