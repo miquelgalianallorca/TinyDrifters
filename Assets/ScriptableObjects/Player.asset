@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carName: Player
   accelerationForce: 70
-  maxSpeed: 200
+  maxSpeed: 30
   rotationSpeed: 100
   driftFactor: 0.8
   waypointOffset: 0
