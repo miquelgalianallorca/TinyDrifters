@@ -17,8 +17,7 @@ public class CarPlayer : MonoBehaviour
 	public Transform boostTrailPos;
 	public TrailRenderer boostTrailPrefab;
 	TrailRenderer boostTrail;
-
-//    public Material[] skidMarksMaterials;
+    
     float driftTime = 0;
 
     bool driftBoost = false;
@@ -53,20 +52,12 @@ public class CarPlayer : MonoBehaviour
             } else if (driftTime > 2f && driftTime < 2.5f) {
 				UpdateSkidMark (skidMarkRedPrefab);
                 driftBoost = true;
-//                skidMarkRight.material = skidMarksMaterials[1];
-//                skidMarkLeft.material = skidMarksMaterials[1];
             } else {
 				UpdateSkidMark (skidMarkPrefab);
 				driftBoost = false;
-
-//                skidMarkRight.material = skidMarksMaterials[0];
-//                skidMarkLeft.material = skidMarksMaterials[0];
             }
 
             driftTime += Time.deltaTime;
-
-            // Instantiate(skidMarkPrefab, skidMarkLeft.position, skidMarkLeft.rotation).transform.parent = skidMarkLeft.transform;
-            //car.rotationSpeed = 100;
         }
         else
         {
@@ -102,12 +93,6 @@ public class CarPlayer : MonoBehaviour
             car.Boost(700f);
             boost = false;
         }
-
-        //if (car.rigidBody.velocity.magnitude < car.maxSpeed)
-        //{
-        //    car.rigidBody.AddForce(transform.forward * 10 * vertical, ForceMode.Impulse);
-        //}
-        //car.rigidBody.velocity = car.ForwardVelocity() + car.RightVelocity() * 0.9f + transform.up * Vector3.Dot(car.rigidBody.velocity, transform.up);
     }
 
 	void UpdateSkidMark(TrailRenderer trailPrefab) {

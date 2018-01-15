@@ -30,62 +30,12 @@ public class CarAI : MonoBehaviour
         float step = car.rotationSpeed * Time.deltaTime * Mathf.Deg2Rad;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
         transform.rotation = Quaternion.LookRotation(newDir);
-
-        //Goal check
-        //if ((transform.position - goal).magnitude < waypointDistance)
-        //{
-        //    waypoint++;
-        //    
-        //}
     }
 
     void FixedUpdate()
     {
         //Car movement
         car.Accelerate(1f);
-
-        //Prueba
-        ////Method 1
-        //Vector3 targetDir = goal - transform.position;
-        //float step = car.rotationSpeed * Time.deltaTime;
-        //Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-        //transform.rotation = Quaternion.LookRotation(newDir);
-
-        ////Method2
-        ////Vector3 targetDir = nodes[waypointIndex].position - transform.position;
-        ////float angle = Vector3.SignedAngle(transform.forward, targetDir, Vector3.up);
-        ////Debug.Log("angle: " + angle);
-        ////float rotAngle;
-        ////if (Mathf.Abs(angle) > deltaAngle)
-        ////{
-        ////    if (angle > 0)
-        ////    {
-        ////        Debug.Log("mayor");
-        ////        rotAngle = Time.deltaTime * rotationSpeed;
-        ////        if (rotAngle > angle)
-        ////        {
-        ////            rotAngle = angle;
-        ////        }
-
-
-        ////    }
-        ////    else
-        ////    {
-        ////        Debug.Log("menor");
-        ////        rotAngle = Time.deltaTime * -rotationSpeed;
-        ////        if (rotAngle < angle)
-        ////        {
-        ////            rotAngle = angle;
-        ////        }
-        ////    }
-        ////    Debug.Log("rotAngle: " + rotAngle);
-        ////    transform.Rotate(Vector3.up, rotAngle);
-        ////}
-
-        //car.rigidBody.AddForce(transform.forward * car.accelerationForce, ForceMode.Acceleration);
-        //car.rigidBody.velocity = Vector3.ClampMagnitude(car.rigidBody.velocity, car.maxSpeed);
-
-        //car.rigidBody.velocity = car.ForwardVelocity() + car.RightVelocity() * 1 + car.UpVelocity();
     }
     Vector3 GetPositionAroundObject(Transform originalPos)
     {

@@ -156,11 +156,6 @@ public class UIManagement : MonoBehaviour
         
     }
 
-    //public void SetSpeedText(int speed)
-    //{
-    //    speedText.text = speed.ToString();
-    //}
-
     public void SetCountDownText(string text)
     {
         countDownText.text = text;
