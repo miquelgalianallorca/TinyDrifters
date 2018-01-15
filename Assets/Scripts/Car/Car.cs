@@ -84,11 +84,11 @@ public class Car : MonoBehaviour
 
     public void Accelerate(float impulse)
     {
-        if (rigidBody.velocity.magnitude < maxSpeed)
+        if (ForwardVelocity().magnitude < maxSpeed + 0.5f)
         {
             rigidBody.AddForce(transform.forward * accelerationForce * impulse, ForceMode.Acceleration);
-            rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
             rigidBody.velocity = ForwardVelocity() + RightVelocity() * driftFactor + UpVelocity();
+            //rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
         }
         
 		// Sound
@@ -103,6 +103,7 @@ public class Car : MonoBehaviour
     public void Boost(float impulse)
     {
         rigidBody.AddForce(transform.forward * impulse, ForceMode.Impulse);
+        //StartCoroutine(BoostTime(1f));
     }
 
     public Transform CheckpointPassed()
@@ -175,5 +176,16 @@ public class Car : MonoBehaviour
     {
         int pos = gameController.GetCarPosition(this) - 1;
         maxSpeed = stats.maxSpeed * (1 + 0.03f * pos);
+    }
+
+    public IEnumerator BoostTime(float seconds)
+    {
+        float iniTime = Time.time;
+        while (Time.time - iniTime < seconds)
+        {
+            rigidBody.velocity = ForwardVelocity().normalized * maxSpeed * 2 + RightVelocity() + UpVelocity();
+            yield return null;
+        }
+        
     }
 }

@@ -44,8 +44,9 @@ public class CarPlayer : MonoBehaviour
         
         if (Input.GetAxis(drift) != 0)
         {
-            
             car.driftFactor = 1f;
+            car.rotationSpeed = car.stats.rotationSpeed;
+
             if (driftTime == 0) {
 				UpdateSkidMark (skidMarkPrefab);
 
@@ -69,6 +70,10 @@ public class CarPlayer : MonoBehaviour
         }
         else
         {
+            car.driftFactor = car.stats.driftFactor;
+            car.rotationSpeed = car.stats.rotationSpeed * 0.5f;
+            driftTime = 0;
+
             if (driftBoost)
             {
 				boostTrail = Instantiate (boostTrailPrefab, boostTrailPos.position, boostTrailPos.rotation) as TrailRenderer;
@@ -78,13 +83,8 @@ public class CarPlayer : MonoBehaviour
                 boost = true;
                 driftBoost = false;
             }
-            car.driftFactor = 0.8f;
-
+           
 			ClearDrifts ();
-
-            driftTime = 0;
-            
-            //car.rotationSpeed = 35;
         }
         if (Input.GetAxis(respawn) != 0)
         {

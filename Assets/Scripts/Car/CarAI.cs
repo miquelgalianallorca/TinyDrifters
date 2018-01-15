@@ -101,7 +101,7 @@ public class CarAI : MonoBehaviour
         
         Vector3 newPos = originalPos.position + offset;
         newPos.y = transform.position.y;
-        Instantiate(gizmo, newPos, Quaternion.identity);
+        //Instantiate(gizmo, newPos, Quaternion.identity);
         return newPos;
     }
 }

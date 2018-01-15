@@ -64,4 +64,11 @@ public class TimeAttackMode : GameMode
             gameUI.SetTimeLeftTime(timeLeft);
         }
     }
+    private void OnDestroy()
+    {
+        if (timeBonus)
+        {
+            Destroy(timeBonus.gameObject);
+        }
+    }
 }

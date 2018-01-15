@@ -132,4 +132,9 @@ public class MenuManagement : MonoBehaviour {
     {
         gameObject.SetActive(false);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

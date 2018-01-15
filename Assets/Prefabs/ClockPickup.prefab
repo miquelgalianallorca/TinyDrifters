@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 136007899362016224}
   - component: {fileID: 95732335737996456}
   - component: {fileID: 114830577467824484}
+  - component: {fileID: 114057529511164210}
   m_Layer: 0
   m_Name: ClockPickup
   m_TagString: Untagged
@@ -347,6 +348,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114057529511164210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542524434587550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706b7449f556f084fb957a036e49b06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 130
 --- !u!114 &114830577467824484
 MonoBehaviour:
   m_ObjectHideFlags: 1
