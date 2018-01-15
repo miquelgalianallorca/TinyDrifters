@@ -57,16 +57,6 @@ public class Car : MonoBehaviour
 		carSoundManager = GetComponent<CarSoundManager> ();
     }
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public Vector3 ForwardVelocity()
     {
         return transform.forward * Vector3.Dot(rigidBody.velocity, transform.forward);

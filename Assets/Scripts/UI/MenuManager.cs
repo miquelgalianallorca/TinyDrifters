@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour {
 
 	bool buttonPressed = false;
-	public string sceneName = "testGonzalo";
+	public string sceneName = "";
 
 	void Awake() {
 		//Don't destroy MenuManager when changing scene
